@@ -1,5 +1,5 @@
 ---
-title: [旧文一篇]松隆子
+title: 旧文一篇 松隆子
 layout: default
 ---
 

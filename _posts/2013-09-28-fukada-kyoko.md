@@ -1,5 +1,5 @@
 ---
-title: [还是旧文]深田恭子
+title: 还是旧文 深田恭子
 layout: default
 ---
 
