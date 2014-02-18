@@ -3,8 +3,6 @@ title: The Two Sides of Me
 layout: default
 ---
 
-# The Two Sides of Me
-
 Earlier this year, I made the a decision which can easily be the best or the worst in my life: I set a goal that I will write around 830 words a day, which gives 300,000 words a year.
 
 I always assumed that when eventually I got nothing better in my life, I could write, as it was some kind of back up plan. The fact is, writing wasn't some kind of plan, it was more of some sort nature reaction, or to put it more precisely, an exist of some kind. Any thing that I do, will eventually be written done. Books that I read, sports that I watched, music that I played, I write about them, or just about any other things happen in life.

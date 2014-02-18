@@ -3,8 +3,6 @@ title: 奠基
 layout: default
 ---
 
-#奠基
-
 ###（一）
 “宝宝~~~~~~”
 
