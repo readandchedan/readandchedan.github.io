@@ -1,5 +1,7 @@
-Title: My blog post
-Date: 2013-05-23 06:19 
+---
+title: My blog post
+layout: default
+---
 
 #1
 
