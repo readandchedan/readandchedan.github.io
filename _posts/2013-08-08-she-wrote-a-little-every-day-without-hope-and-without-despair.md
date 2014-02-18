@@ -1,5 +1,7 @@
-Title: she wrote a little every day, without hope and without despair
-Date: 2013-08-08 08:05 
+---
+title: she wrote a little every day, without hope and without despair
+layout: default
+---
 
 Isak Dinesen said that she wrote a little every day, without hope and without despair.
 
