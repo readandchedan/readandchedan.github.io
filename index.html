@@ -2,8 +2,8 @@
 layout: default
 title: Read And Chedan
 ---
-<p>最新文章</p>
 <p>Write a little every day, without hope and without despair. --- Isak Dinesen</p>
+<p>最新文章</p>
 <ul>
 　　{% for post in site.posts %}
 　　　　<li>{{ post.date | date_to_string }} <a href="{{ post.url }}">{{ post.title }}</a></li>
