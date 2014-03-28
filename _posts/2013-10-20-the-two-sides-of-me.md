@@ -2,7 +2,7 @@
 title: The Two Sides of Me
 layout: default
 ---
-
+<div style="font-family: Crimson Text">
 Earlier this year, I made the a decision which can easily be the best or the worst in my life: I set a goal that I will write around 830 words a day, which gives 300,000 words a year.
 
 I always assumed that when eventually I got nothing better in my life, I could write, as it was some kind of back up plan. The fact is, writing wasn't some kind of plan, it was more of some sort nature reaction, or to put it more precisely, an exist of some kind. Any thing that I do, will eventually be written done. Books that I read, sports that I watched, music that I played, I write about them, or just about any other things happen in life.
@@ -28,3 +28,4 @@ Soon I realize there is a problem with this measure: although the goal is entire
 Again, I suppose this conflicting nature of people are in each and every one of us. But the point here, if there is any point at all, is that if there is a goal one attempt to reach, the only bad thing that can happen is to stop reaching it. Whether you reach your goal or not, you still harvest the journey of reaching it, but once you stopped, there will be no harvest, only self despair, defeat, and sadness I suppose.
 
 I might be slow from to time to time, but I don't stop.
+</div>
