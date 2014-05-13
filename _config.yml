@@ -1,3 +1,4 @@
 encoding: utf-8
 title: Read, And Chedan
 pygments: true
+markdown: kramdown
