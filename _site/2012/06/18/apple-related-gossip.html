@@ -5,10 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 　　　　 <title>上纲上线（二）</title>
 　　</head>
-　　<body>
-        <div id="content">
+　　<body class="post">
+        <header>
           <h1>上纲上线（二）</h1>
-          <div class="paragraph"><p>书接上回，继续上纲上线</p>
+          <p><a href="http://weibo.com/goodbyesaka/">@再见Esaka</a> 2012-06-18 00:00:00 -0400</p>
+        </header>
+        <article><p>书接上回，继续上纲上线</p>
 
 <p>最近这两天情绪比较旺盛，扯淡的欲望也比较磅礴。没办法，码字儿的时候我这种三无青年就特别的平静。</p>
 
@@ -42,24 +44,76 @@
 
 <p>总而言之，当商家的规模决定了他可以决定市场的行动模式的时候，要么他让消费者用钱投票，然后迎合消费者（比如苹果）；要么就是直接改变市场的行动模式，让这场游戏不管结果如何，赢家都是自己。</p>
 
-<p>换言之，在市场经济这个模式下，只有利润的效率是会被努力争取的，产品的质量、消费者的体验则未必是商家所关心的。</p></div>
-        </div>
+<p>换言之，在市场经济这个模式下，只有利润的效率是会被努力争取的，产品的质量、消费者的体验则未必是商家所关心的。</p>
+</article>
 　　</body>
     <footer>
       All rights reserved. © 2010-2014 readandchedan
     </footer>
 </html>
 <style>
-#content {
-  margin: 0 auto;
-  max-width: 640px;
+/*.content {
+  margin: 60px auto;
+  max-width: 676px;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  background-color: #f6f5ed;
+  color: #484848;
+  font-size: 16px;
+  line-height: 24px;
+}*/
+
+header {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
-.paragraph {
+header a {
+  color: #484848;
+  text-decoration: none;
+  border-bottom: 1px dotted #999892;
+}
+
+header a:visited {
+  color: #484848;
+}
+
+body.post header p {
+  font-size: 12px;
+}
+
+
+body {
+  /*margin: 60px auto;*/
+  margin: 0 auto;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  
+  background-color: #f6f5ed;
+  
+  color: #484848;
+
+  width: 540px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+h1 {
+  font-size: 34px;
+  line-height: 38px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+
+body.post h1 {
+  margin-bottom: 5px;
+}
+
+/*.paragraph {
   font-family: "Microsoft YaHei";
   font-size: 18px;
 }
-
+*/
 footer {
   margin: 0 auto;
   max-width: 640px;
@@ -72,7 +126,7 @@ footer {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-49002025-1', 'readandchedan.github.io');
+  ga('create', 'UA-50911922-1', 'readandchedan.com');
   ga('send', 'pageview');
 
 </script>

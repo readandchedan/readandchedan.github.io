@@ -5,10 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 　　　　 <title>我和我的怀旧</title>
 　　</head>
-　　<body>
-        <div id="content">
+　　<body class="post">
+        <header>
           <h1>我和我的怀旧</h1>
-          <div class="paragraph"><p>我从不掩饰我自己怀旧。</p>
+          <p><a href="http://weibo.com/goodbyesaka/">@再见Esaka</a> 2012-07-08 00:00:00 -0400</p>
+        </header>
+        <article><p>我从不掩饰我自己怀旧。</p>
 
 <p>我的柜子里现在还有我从小学三年级背的那个书包，风风雨雨之后就那么大大咧咧的挂在我的衣柜里，顶着15岁的年纪非常坦然。我也乐得有机会就对人说：看这个书包，已经十五年了。说炫耀倒是未必有那种想法，更何况还有被对方背后念叨穷酸的可能。</p>
 
@@ -40,24 +42,76 @@
 
 <p>或许，人一生终究要经历很多东西，曾经属于你的东西一定会有很多：但是如果把所有东西就那么背着，这条路怕是走的很辛苦吧。</p>
 
-<p>写到这里，伸个懒腰，看看周围，或许有什么东西又到了该处理掉的时候了吧。</p></div>
-        </div>
+<p>写到这里，伸个懒腰，看看周围，或许有什么东西又到了该处理掉的时候了吧。</p>
+</article>
 　　</body>
     <footer>
       All rights reserved. © 2010-2014 readandchedan
     </footer>
 </html>
 <style>
-#content {
-  margin: 0 auto;
-  max-width: 640px;
+/*.content {
+  margin: 60px auto;
+  max-width: 676px;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  background-color: #f6f5ed;
+  color: #484848;
+  font-size: 16px;
+  line-height: 24px;
+}*/
+
+header {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
-.paragraph {
+header a {
+  color: #484848;
+  text-decoration: none;
+  border-bottom: 1px dotted #999892;
+}
+
+header a:visited {
+  color: #484848;
+}
+
+body.post header p {
+  font-size: 12px;
+}
+
+
+body {
+  /*margin: 60px auto;*/
+  margin: 0 auto;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  
+  background-color: #f6f5ed;
+  
+  color: #484848;
+
+  width: 540px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+h1 {
+  font-size: 34px;
+  line-height: 38px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+
+body.post h1 {
+  margin-bottom: 5px;
+}
+
+/*.paragraph {
   font-family: "Microsoft YaHei";
   font-size: 18px;
 }
-
+*/
 footer {
   margin: 0 auto;
   max-width: 640px;
@@ -70,7 +124,7 @@ footer {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-49002025-1', 'readandchedan.github.io');
+  ga('create', 'UA-50911922-1', 'readandchedan.com');
   ga('send', 'pageview');
 
 </script>

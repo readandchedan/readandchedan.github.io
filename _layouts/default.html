@@ -5,25 +5,64 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 　　　　 <title>{{ page.title }}</title>
 　　</head>
-　　<body>
-        <div id="content">
+　　<body class="post">
+        <header>
           <h1>{{ page.title }}</h1>
-          <div class="paragraph">{{ content }}</div>
-        </div>
+          <p><a href="http://weibo.com/goodbyesaka/">@再见Esaka</a> {{ page.date }}</p>
+        </header>
+        <article>{{ content }}</article>
 　　</body>
     <footer>
       All rights reserved. © 2010-2014 readandchedan
     </footer>
 </html>
 <style>
-#content {
-  margin: 0 auto;
-  max-width: 640px;
+
+header {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
-.paragraph {
-  font-family: "Microsoft YaHei";
-  font-size: 18px;
+header a {
+  color: #484848;
+  text-decoration: none;
+  border-bottom: 1px dotted #999892;
+}
+
+header a:visited {
+  color: #484848;
+}
+
+body.post header p {
+  font-size: 12px;
+}
+
+
+body {
+  /*margin: 60px auto;*/
+  margin: 0 auto;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  
+  background-color: #f6f5ed;
+  
+  color: #484848;
+
+  width: 540px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+h1 {
+  font-size: 34px;
+  line-height: 38px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+
+body.post h1 {
+  margin-bottom: 5px;
 }
 
 footer {

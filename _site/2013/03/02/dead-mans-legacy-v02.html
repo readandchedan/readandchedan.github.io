@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 　　　　 <title>亡者遗产 v0.2</title>
 　　</head>
-　　<body>
-        <div id="content">
+　　<body class="post">
+        <header>
           <h1>亡者遗产 v0.2</h1>
-          <div class="paragraph"><h3 id="">（一）</h3>
-
+          <p><a href="http://weibo.com/goodbyesaka/">@再见Esaka</a> 2013-03-02 00:00:00 -0500</p>
+        </header>
+        <article><h3 id="section">（一）</h3>
 <p>在很多年以后，马克特斯伫立在滚滚黄沙之中，一定会想起老师最后一次教他的那个傍晚，在那片沉默而庞大的树海，是马克特斯度过整个少年时期的地方。那天傍晚，暮色将至，马克特斯沉沉的吸了一口气，屏气凝神，不慌不忙的将硬弓拉开到一种微妙的饱满；然后他慢慢的，有意识的开始放松控制箭羽的两指。</p>
 
 <p>箭矢划出饱满的弧线，稳稳的命中了百步之外的箭靶。</p>
@@ -86,8 +87,7 @@
 
 <p>“于是那时候，我就知道，作为射手的我已经死了，从那开始，我要以箭术老师的身份活下去。”</p>
 
-<h3 id="_2">（二）</h3>
-
+<h3 id="section-1">（二）</h3>
 <p>对于在常年积雪广袤北方针叶林中修行长大的射手，黄沙漫天的戈壁不是马克特斯最喜欢的环境：周围是一望无际的平地，没有任何可以用来周旋和隐藏的地方；唯有无穷无尽的狂风不间断的吹过，干扰一切神射手的准头。不断卷过的黄沙让人连眼睛都难以睁开，对常人来说，就算是想张弓射中近在咫尺的一头大象，都会非常困难。</p>
 
 <p>马克特斯翻身下了骆驼。</p>
@@ -162,7 +162,7 @@
 
 <p>箭矢划出饱满的弧线，射向天际，继而坠落，消失在大漠的夜色之中。</p>
 
-<h3 id="_3">(三)</h3>
+<h3 id="section-2">(三)</h3>
 
 <p>那很多年之后，曾经有人无意之中找到了一份恶魔的手札。一个恶魔写到，那时候他曾经带领一队精锐手下去追逐几个信使，但却只找到了一个射手。那箭手在狂风之中仿佛完全成为了审判的化身，他凝聚的戒律仿佛天使的翅膀，源源不断的将注满仇恨的箭矢射向自己。他从未见过任何一个凡人能制造这么大的能量。他所率领的骑兵队伍虽然最终还是碾过了那个射手，但是最后清点下来，本队居然损失了大半的人手。于是他在确认没有任何反抗之后，四处搜索，没有找到任何尸体，只找到了一个箭袋。</p>
 
@@ -170,24 +170,76 @@
 
 <p>他们只能拿那个箭袋回去复命。却只得到了“那个箭袋，从此以后，就叫做‘亡者遗产’。”这样一条回复而已。</p>
 
-<p>「縱然面對千軍萬馬，馬特克斯依然堅守崗位。他知道自己終究難逃一死，索性站定腳跟，一箭接著一箭，直到被浪潮般的敵人吞沒。」 —《荒野傳奇》</p></div>
-        </div>
+<p>「縱然面對千軍萬馬，馬特克斯依然堅守崗位。他知道自己終究難逃一死，索性站定腳跟，一箭接著一箭，直到被浪潮般的敵人吞沒。」 —《荒野傳奇》</p>
+</article>
 　　</body>
     <footer>
       All rights reserved. © 2010-2014 readandchedan
     </footer>
 </html>
 <style>
-#content {
-  margin: 0 auto;
-  max-width: 640px;
+/*.content {
+  margin: 60px auto;
+  max-width: 676px;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  background-color: #f6f5ed;
+  color: #484848;
+  font-size: 16px;
+  line-height: 24px;
+}*/
+
+header {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
-.paragraph {
+header a {
+  color: #484848;
+  text-decoration: none;
+  border-bottom: 1px dotted #999892;
+}
+
+header a:visited {
+  color: #484848;
+}
+
+body.post header p {
+  font-size: 12px;
+}
+
+
+body {
+  /*margin: 60px auto;*/
+  margin: 0 auto;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  
+  background-color: #f6f5ed;
+  
+  color: #484848;
+
+  width: 540px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+h1 {
+  font-size: 34px;
+  line-height: 38px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+
+body.post h1 {
+  margin-bottom: 5px;
+}
+
+/*.paragraph {
   font-family: "Microsoft YaHei";
   font-size: 18px;
 }
-
+*/
 footer {
   margin: 0 auto;
   max-width: 640px;
@@ -200,7 +252,7 @@ footer {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-49002025-1', 'readandchedan.github.io');
+  ga('create', 'UA-50911922-1', 'readandchedan.com');
   ga('send', 'pageview');
 
 </script>
