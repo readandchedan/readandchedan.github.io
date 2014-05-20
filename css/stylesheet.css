@@ -38,8 +38,7 @@ li {
 
 body {
   margin: 0 auto;
-  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', 'STHeiti', 'Microsoft YaHei', serif;
-  
+  font-family: Palatino, 'Palatino Linotype', Georgia, 'Times New Roman', 'STHeiti', 'Microsoft YaHei', serif;
   background-color: #f6f5ed;
   
   color: #484848;
