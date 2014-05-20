@@ -2,3 +2,13 @@ encoding: utf-8
 title: Read, And Chedan
 pygments: true
 markdown: kramdown
+safe:        false
+auto:        false
+
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+
+future:      true
+lsi:         false
+pygments:    false
