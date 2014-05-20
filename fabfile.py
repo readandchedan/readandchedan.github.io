@@ -9,6 +9,6 @@ from fabric.utils import puts
 @task
 def up():
     local('git add --all')
-    local('git commit  -m "{}"'.format("New post for %s" % (datetime.now())))
+    local('git commit  -m "{}"'.format("Commited on %s" % (datetime.now())))
     local('git push')
     puts(green('Posts Updated'))
