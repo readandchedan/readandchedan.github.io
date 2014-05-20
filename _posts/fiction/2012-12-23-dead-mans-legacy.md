@@ -1,6 +1,7 @@
 ---
 title: 亡者遗产
 layout: default
+categories : [fiction]
 ---
 
 ###（一）

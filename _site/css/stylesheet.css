@@ -1,0 +1,72 @@
+
+header {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+header a {
+  color: #484848;
+  text-decoration: none;
+  border-bottom: 1px dotted #999892;
+}
+
+header a:visited {
+  color: #484848;
+}
+
+a {
+    color: #812323;
+    text-decoration: none;
+}
+
+a:visited {
+  color: gray;
+}
+
+
+body.post header p {
+  font-size: 12px;
+}
+
+p {
+  margin: 0 0 3ex 0;
+}
+
+li {
+  line-height: 1;
+}
+
+body {
+  margin: 0 auto;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', 'STHeiti', 'Microsoft YaHei', serif;
+  
+  background-color: #f6f5ed;
+  
+  color: #484848;
+
+  width: 676px;
+  font-size: 1.125em;
+  line-height: 1.8em;
+}
+
+
+h1 {
+  font-size: 34px;
+  line-height: 38px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+
+body.post h1 {
+  margin-bottom: 5px;
+}
+
+footer {
+  border-top: 1px solid rgb(206,206,206);
+
+  margin-top: 48px;
+  padding-top: 24px;
+
+  font-size: 14px;
+}
