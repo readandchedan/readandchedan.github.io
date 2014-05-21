@@ -42,7 +42,7 @@
   }
 }
 
-@media (min-width: 21rem) {
+@media (min-width: 30rem) {
   .post {
     max-width: 44rem;
     padding-left: 1.5rem;
