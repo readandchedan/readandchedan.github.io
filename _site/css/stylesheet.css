@@ -28,9 +28,17 @@
   
   color: #484848;
 
-  width: 42rem;
+  width: 44rem;
   font-size: 1.125em;
   line-height: 1.8em;
+}
+
+@media (min-width: 28rem) {
+  .post {
+    max-width: 32rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 ul {
