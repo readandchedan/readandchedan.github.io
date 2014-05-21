@@ -1,45 +1,30 @@
-
-header {
-  margin-top: 30px;
-  margin-bottom: 20px;
+.header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
 }
 
-header a {
+.header a {
   color: #484848;
   text-decoration: none;
-  border-bottom: 1px dotted #999892;
+  /*border-bottom: 1px dotted #999892;*/
 }
 
-header a:visited {
-  color: #484848;
+.header.home {
+  color: black;
+  text-decoration: none;
 }
 
-a {
-    color: #812323;
-    text-decoration: none;
-}
-
-a:visited {
-  color: gray;
-}
-
-
-body.post header p {
-  font-size: 12px;
-}
-
-p {
-  margin: 0 0 3ex 0;
-}
-
-li {
-  line-height: 1;
+.post-date {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  display: inline;
+  color: #9a9a9a;
 }
 
 body {
   margin: 0 auto;
   font-family: Palatino, 'Palatino Linotype', Georgia, 'Times New Roman', 'STHeiti', 'Microsoft YaHei', serif;
-  background-color: #FCFDFD;
   
   color: #484848;
 
@@ -48,6 +33,27 @@ body {
   line-height: 1.8em;
 }
 
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  line-height: 1;
+}
+
+li a {
+    text-decoration: none;
+    color: #303030
+}
+
+body.post header p {
+  font-size: 12px;
+}
+
+p {
+  margin: 0 0 3ex 0;
+}
 
 h1 {
   font-size: 34px;
@@ -62,10 +68,6 @@ body.post h1 {
 }
 
 footer {
-  border-top: 1px solid rgb(206,206,206);
-
-  margin-top: 48px;
-  padding-top: 24px;
-
+  border-top: 1px solid #eee;
   font-size: 14px;
 }
