@@ -33,9 +33,18 @@
   line-height: 1.8em;
 }
 
-@media (min-width: 28rem) {
+
+@media (min-width: 20rem) {
   .post {
-    max-width: 32rem;
+    max-width: 18rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 21rem) {
+  .post {
+    max-width: 44rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
