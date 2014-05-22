@@ -1,12 +1,10 @@
 .header {
-  margin-bottom: 2rem;
   border-bottom: 1px solid #eee;
 }
 
 .header a {
   color: #484848;
   text-decoration: none;
-  /*border-bottom: 1px dotted #999892;*/
 }
 
 .header.home {
@@ -59,9 +57,14 @@ li {
   line-height: 1.3;
 }
 
-li a {
+a {
     text-decoration: none;
     color: #303030
+}
+
+a:hover {
+  text-decoration: underline;
+  
 }
 
 body.post header p {
