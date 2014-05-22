@@ -12,6 +12,12 @@
   text-decoration: none;
 }
 
+.quote {
+  font-size: 1em;
+  font-style: italic;
+  margin-bottom: 0;
+  font-family: georgia;
+}
 .post-date {
   display: block;
   margin-top: 0.5rem;
