@@ -86,6 +86,12 @@ h1 {
   font-size: 34px;
   line-height: 38px;
   font-weight: normal;
+  margin-bottom: 20px;
+}
+
+
+body.post h1 {
+  margin-bottom: 5px;
 }
 
 footer {
