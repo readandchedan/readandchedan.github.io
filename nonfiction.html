@@ -2,10 +2,11 @@
 layout: default
 title: Non-Fictions
 ---
-<p style="font-size: 1em; font-style: italic; margin-bottom: 0;">Write a little every day, without hope and without despair. --- Isak Dinesen</p>
-
 <ul>
     {% for post in site.categories.nonfiction %}
-　　　　<li>{{ post.date | date_to_string }} <a href="{{ post.url }}">{{ post.title }}</a></li>
+        <li>
+            <div class="post-date">{{ post.date | date_to_string }}</div>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
 　　{% endfor %}
 </ul>
