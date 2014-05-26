@@ -36,6 +36,7 @@
   width: 44rem;
   font-size: 1.125em;
   line-height: 1.8em;
+  -webkit-font-smoothing: antialiased;
 }
 
 
