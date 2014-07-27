@@ -79,9 +79,7 @@ layout: default
 
 素食主义作为一种减肥的考量，道理差不多也类似。
 
-实际上，只要单纯的控制热量，即便每天吃麦当劳仍然可减肥，而且不乏成功者：
-
-http://www.kcci.com/news/central-iowa/science-teacher-creates-documentary-based-on-mcdonalds-diet/23750942#!bnuLSP
+实际上，只要单纯的控制热量，即便每天吃麦当劳仍然可减肥，而且不乏成功者。（有兴趣可以搜索一下John Cisna）
 
 同时，从实际的角度出发，介于麦当劳大致上都有完善的营养信息，要做到控制热量相比于其他热门的减肥计划，或许更加容易执行。
 
