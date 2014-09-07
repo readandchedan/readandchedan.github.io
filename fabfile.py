@@ -8,6 +8,7 @@ from fabric.utils import puts
 
 @task
 def up():
+    local('rm -rf _sites/*')
     local('git add --all')
     local('git commit  -m "{}"'.format("Commited on %s" % (datetime.now())))
     local('git push')

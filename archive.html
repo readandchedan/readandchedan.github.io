@@ -5,11 +5,9 @@ title: Read And Chedan
 <!-- <p class="quote">Write a little every day, without hope and without despair. --- Isak Dinesen</p> -->
 <ul>
 　　{% for post in site.posts %}
-        {% if post.path contains 'tabletennis' %}
-        <li>
+　　　　<li>
             <div class="post-date">{{ post.date | date_to_string }}</div>
             <a href="{{ post.url }}">{{ post.title }}</a>
         </li>
-        {% endif %}
 　　{% endfor %}
 </ul>
