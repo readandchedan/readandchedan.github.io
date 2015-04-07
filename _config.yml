@@ -3,6 +3,10 @@ title: Read, And Chedan
 markdown: kramdown
 safe:        false
 
+url: http://readandchedan.com
+description: Read, And Chedan
+name: Read, And Chedan
+
 source:      .
 future:      true
 lsi:         false
