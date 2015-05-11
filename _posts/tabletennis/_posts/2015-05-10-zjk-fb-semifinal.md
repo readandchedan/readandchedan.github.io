@@ -1,5 +1,5 @@
 ---
-titile: 世锦赛半决赛：张继科对方博 
+title: 世锦赛半决赛：张继科对方博 
 layout: default
 ---
 
