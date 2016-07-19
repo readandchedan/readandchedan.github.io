@@ -1,5 +1,5 @@
 ---
-title: 奥运前瞻：换血成功的香港男队
+title: 奥运前瞻：换血成功的香港队
 layout: default
 ---
 
