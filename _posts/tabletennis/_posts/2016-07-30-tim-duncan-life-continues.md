@@ -1,6 +1,6 @@
 ---
 title: 蒂姆邓肯：生活继续
-default: layout
+layout: defaul
 ---
 
 “无论发生什么，生活都将继续”——题记
