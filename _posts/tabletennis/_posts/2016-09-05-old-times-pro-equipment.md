@@ -21,38 +21,37 @@ title: 乒乓11分的怀旧篇：那个器材幺蛾子辈出的时代，人妖�
 
 今天这篇主要是快速胶水时代，也就是2000年改大球之后到2009年无机胶水之前。
 
-===如果没有特殊说明，全部图片来自于网友RXNG的相册http://www.snaapa.com/rxng/cntt
+***如果没有特殊说明，全部图片来自于网友RXNG的相册http://www.snaapa.com/rxng/cntt
 
 首先说一下王励勤和人妖板的故事。
 
 所谓人妖板，就是球板的板身和手柄并不属于同一个品牌同一个型号的情况。这种一般来说是选手和某个品牌签约，但是并不使用他们的器材，于是赞助商把手柄换上去，用于赞助。
 
-http://www.snaapa.com/rxng/cntt/wongg
+[http://www.snaapa.com/rxng/cntt/wongg](http://www.snaapa.com/rxng/cntt/wongg)
 
 上图就是王励勤的狂飙王手柄，但是底板是STIGA OC－CR的。
 
-http://www.snaapa.com/rxng/cntt/wong
+[http://www.snaapa.com/rxng/cntt/wong](http://www.snaapa.com/rxng/cntt/wong)
 
 另外一张。
 
-http://www.snaapa.com/rxng/cntt/WONG01
+[http://www.snaapa.com/rxng/cntt/WONG01](http://www.snaapa.com/rxng/cntt/WONG01)
 
 王励勤使用STIGA底板时期的照片，正手蓝色海绵狂飙2（现在这东西停产了。早年在器材店里就能直接买到22号蓝色海面的狂飙）
 
 当然，后来王励勤用了狂飙王。至于当时为什么没直接换过去，就不太清楚了。
 
-http://www.snaapa.com/rxng/cntt/wangggg01
-
+[http://www.snaapa.com/rxng/cntt/wangggg01](http://www.snaapa.com/rxng/cntt/wangggg01)
 （顺便说，狂飙王是红双喜真正打开高端名号的作品之一。当时大家都觉得一千多的售价买一块五夹纯木球板简直是脑袋被挤了，但是实际上看狂飙王的性能口碑和红双喜的营销确实打开了市场。）
 
 当然，那时候王励勤这种情况并不是太多（抑或是年头太久我想不起来了），不像现在，我们就有某个青年主力某某某和某个国外一线球星某某某某用人妖板，当然也有还不是主力的某某。
 
 不过严格说来，人妖板的情况还有一种，就是虽然手柄和板身是一个品牌的，但是并不是一个型号的。举例来说，格林卡很长一段时间打的底板是这样的：
 
-http://www.snaapa.com/rxng/cntt/200410291929583_G
-http://www.snaapa.com/rxng/cntt/4560456798_G
-http://www.snaapa.com/rxng/cntt/346981_34243
-http://www.snaapa.com/rxng/cntt/346986_34243
+[http://www.snaapa.com/rxng/cntt/200410291929583_G](http://www.snaapa.com/rxng/cntt/200410291929583_G)
+[http://www.snaapa.com/rxng/cntt/4560456798_G](http://www.snaapa.com/rxng/cntt/4560456798_G)
+[http://www.snaapa.com/rxng/cntt/346981_34243](http://www.snaapa.com/rxng/cntt/346981_34243)
+[http://www.snaapa.com/rxng/cntt/346986_34243](http://www.snaapa.com/rxng/cntt/346986_34243)
 
 这个手柄的拼花蝴蝶出了好几个名字（顺便说，当年蝴蝶是个签约选手就有专属底板，有些还单独设计拼花，后来直接就改个名字），最早的是法国的勒古，后来是有施拉格（一直到出专门的施拉格碳素），格林卡，等等。
 
@@ -66,8 +65,8 @@ http://www.snaapa.com/rxng/cntt/346986_34243
 
 当然，跟下面这几位比起来，上面几位就本分多了：起码板身是很常见的型号，喜欢的话去买就是了。
 
-http://www.snaapa.com/rxng/cntt/ko01
-http://www.snaapa.com/rxng/cntt/ko03
+[http://www.snaapa.com/rxng/cntt/ko01](http://www.snaapa.com/rxng/cntt/ko01)
+[http://www.snaapa.com/rxng/cntt/ko03](http://www.snaapa.com/rxng/cntt/ko03)
 
 这是高军的球板。高军是早年中国国家队队员，后来出国去美国打球。直板正胶快（慢）攻（防）打法，靠着稳健的防守赢了不少人。她的球板是一块锯短了的松下浩二。
 
@@ -79,9 +78,9 @@ http://www.snaapa.com/rxng/cntt/ko03
 
 一般来说现在市面上有售的蝴蝶朱世赫是一块有大心（中坚那层最厚）的五夹木板。据很多人说这块板子其实攻击力不错，甚至有点偏硬，和前文提到的松下浩二完全不是一个路子。但是实际上，我看过的所有照片里，朱世赫从来没用过以自己名字命名的底板。
 
-http://www.snaapa.com/rxng/cntt/JOO07
-http://www.snaapa.com/rxng/cntt/JOO05
-http://www.snaapa.com/rxng/cntt/JOO04
+[http://www.snaapa.com/rxng/cntt/JOO07](http://www.snaapa.com/rxng/cntt/JOO07)
+[http://www.snaapa.com/rxng/cntt/JOO05](http://www.snaapa.com/rxng/cntt/JOO05)
+[http://www.snaapa.com/rxng/cntt/JOO04](http://www.snaapa.com/rxng/cntt/JOO04)
 
 朱世赫底板过去的照片，正手蝴蝶tackfire，反手蝴蝶feint long 2，底板是蝴蝶特制diode。图片中可以看到，这块板是等厚的（五层一样厚），和市面上出售的蝴蝶朱世赫完全不是一个型号。这块板非常早年就停产了（可能在2000年之前就停产了？），但是蝴蝶每年会在韩国以“特别注御文品”的名义少量发售。实际上不止朱世赫，徐孝元，甚至可能所有韩国的削球手用的都是这块早就停产的拍子。
 
@@ -89,10 +88,10 @@ http://www.snaapa.com/rxng/cntt/JOO04
 
 但是即便这样，在换手柄的世界里仍然有更夸张的存在。这当然就是我们敬爱的孔指导。生涯后期的孔指导成绩自己不太满意，后来开始频繁的折腾拍子，因为这事儿还被蔡振华指导批评过。蝴蝶在2003年前后出了新款孔令辉底板，俗称孔芳碳，蓝色手柄桧木面材＋芳碳结构的底板。但是既然列在这里了，孔指导用的肯定不是这个板子……
 
-http://www.snaapa.com/rxng/cntt/KLH04
-http://www.snaapa.com/rxng/cntt/KLH02
-http://www.snaapa.com/rxng/cntt/KLH01
-http://www.snaapa.com/rxng/cntt/200511511755146_G
+[http://www.snaapa.com/rxng/cntt/KLH04](http://www.snaapa.com/rxng/cntt/KLH04)
+[http://www.snaapa.com/rxng/cntt/KLH02](http://www.snaapa.com/rxng/cntt/KLH02)
+[http://www.snaapa.com/rxng/cntt/KLH01](http://www.snaapa.com/rxng/cntt/KLH01)
+[http://www.snaapa.com/rxng/cntt/200511511755146_G](http://www.snaapa.com/rxng/cntt/200511511755146_G)
 
 孔令辉的特制底板，正手海绵套胶也有说头，下回细说，这里重点说底板。估计各位也见到了，这块底板是两面结构不一样的。反手那面有芳碳，正手则是纯木的。拼花是孔令辉芳碳的拼花，但是没有牌。
 
