@@ -22,13 +22,13 @@ layout: default
 这两位在2003年之后的生涯中一直选择的是老环球999的单胶皮配合红双喜的海绵做正手，蝴蝶bryce系列做反手；因为老版环球999的单胶皮特别稀有，当时已经停产，而且大多数是红色，所以那会孔令辉和马琳是为数不多的红色打正手的中国选手。
 
 马琳当时的正手，底板是YE
-http://www.snaapa.com/rxng/cntt/MALIN01
+[http://www.snaapa.com/rxng/cntt/MALIN01](http://www.snaapa.com/rxng/cntt/MALIN01)
 
 反手，套胶是bryce
-http://www.snaapa.com/rxng/cntt/MALIN02
+[http://www.snaapa.com/rxng/cntt/MALIN02](http://www.snaapa.com/rxng/cntt/MALIN02)
 
 孔令辉正手环球999的特写
-http://www.snaapa.com/rxng/cntt/KLH03
+[http://www.snaapa.com/rxng/cntt/KLH03](http://www.snaapa.com/rxng/cntt/KLH03)
 
 当然了，如果有过粘单胶皮海绵的朋友就会知道，这玩意儿其实特别不好伺候，粘起来多一个步骤不说，胶水刷多了还经常起泡，相当麻烦。于是乎，当年孔令辉马琳搜刮到了剩下的所有的老环球999胶皮之后据说直接送到了红双喜，由红双喜负责用机器像粘合自家产品一样做成套胶送回来。所以图中这些胶皮都是这种工艺的产物，和自己买的单海绵加胶皮是本质上不同的。
 
@@ -40,13 +40,13 @@ http://www.snaapa.com/rxng/cntt/KLH03
 
 王皓出道时期用的是和师兄同款的亚萨卡YE底板，正手配置的是红双喜的G666套胶。如果你听说过这个名字，你绝对是个老炮。这东西是狂飙全面铺开之前的产品，生命力相比狂飙3短暂的惊人。当时大家正手都在打狂飙的时候王皓还在打G666，直到后来出了天极系列。
 
-http://www.snaapa.com/rxng/cntt/4ZVP_BAT5
+[http://www.snaapa.com/rxng/cntt/4ZVP_BAT5](http://www.snaapa.com/rxng/cntt/4ZVP_BAT5)
 
 王皓的反手技术当时算是绝对的耳目一新，但是他当时反手的套胶是非常大路的蝴蝶sriver系列（好像绰号是小蝴蝶）。不过从王皓的整个生涯来看，他一定非常喜欢这个胶皮，因为后来大家都换成了蝴蝶bryce系列之后，王皓……非常坚持的仍然用着sriver的胶皮……但是把海绵换成了bryce的，然后一直打到了退役。
 
 考虑到蝴蝶的套胶几乎不太可能用人为的手段拆分开（相信我，论坛上的老烧们水煮化学点解金木水火土都试过了，没有什么有把握的办法），唯一的可能性就是蝴蝶公司提供了这些特别的套胶。但是王皓和蝴蝶一来没合同二来没代言，蝴蝶这一管管了十几年的特制套胶，也是没谁了。
 
-http://www.snaapa.com/rxng/cntt/wanghaob
+[http://www.snaapa.com/rxng/cntt/wanghaob](http://www.snaapa.com/rxng/cntt/wanghaob)
 
 王皓应该是2004年前后的天罡手柄底板，配合的已经是sriver胶皮配合bryce。（之间应该短暂的用过tackfire，但是很快就换掉了）
 
@@ -56,9 +56,9 @@ http://www.snaapa.com/rxng/cntt/wanghaob
 
 既然之前说到胶皮海绵，那么再提一个相对少人知道的：庄智渊当年刚出道的时候，用的是友谊的蓝色50度海绵＋729-2的正手套胶，配合反手多尼克F1，底板是多尼克正常版的瓦木。
 
-http://www.snaapa.com/rxng/cntt/chong01
+[http://www.snaapa.com/rxng/cntt/chong01](http://www.snaapa.com/rxng/cntt/chong01)
 
-http://www.snaapa.com/rxng/cntt/chong02
+[http://www.snaapa.com/rxng/cntt/chong02](http://www.snaapa.com/rxng/cntt/chong02)
 
 （注，乒乓球海绵的硬度一贯是一塌糊涂，各家标准换算完全不同。这个友谊海绵的50度大概相当于红双喜的41，42度左右，是挺硬的版本，但是不是最硬的，虽然度数看着很大。）
 
