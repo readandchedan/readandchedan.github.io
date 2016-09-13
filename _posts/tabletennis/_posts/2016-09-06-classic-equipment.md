@@ -9,8 +9,8 @@ title: 乒乓11分的怀旧篇：有机时代的经典配置
 
 首先从马琳开始：
 
-[http://www.snaapa.com/rxng/cntt/malin](http://www.snaapa.com/rxng/cntt/malin)
-[http://www.snaapa.com/rxng/cntt/malin2](http://www.snaapa.com/rxng/cntt/malin2)
+![http://www.snaapa.com/rxng/cntt/malin](http://d0.snaapa.com/albums2/rxng/cntt/malin.jpg)
+![http://www.snaapa.com/rxng/cntt/malin2](http://d0.snaapa.com/albums2/rxng/cntt/malin2.jpg)
 
 马琳后来到退役的球板配置一直都沿用这个大致思路：YEO硬木系列五夹底板，正手国字号的天极系列，反手蝴蝶。图中的配置是YEO，正手红色国天2，反手蝴蝶Bryce套胶。马琳印象里在北京奥运会之前换用了面材加硬的YEO系列，取代原来的YE。如果有足够的胶水，这个配置击球速度到控制手感都是顶尖的。有足够的胶水退台都不虚，凌厉敏锐，可能比现在的更贵的无机配置好打。（我的个人看法，胶水管够的话，基本上有机时代的配置都要比现在大几千的高配好打，但是要频繁的折腾。而且现在市面上还在卖的有机胶水都不是什么合规产品了，对健康不好。）
 
