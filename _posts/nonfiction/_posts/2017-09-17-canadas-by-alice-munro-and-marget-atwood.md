@@ -5,7 +5,9 @@ layout: default
 
 2013年爱丽丝门罗获得诺贝尔文学奖，媒体和诺奖委员会打电话到她家里，却无人接听，只好联系她认识的人，结果另一位加拿大文学女王玛格丽特阿特伍德发推特说：“爱丽丝，我的电话被人打爆了，快接电话啊！”——我才知道这两位是好闺蜜。
 
-https://twitter.com/margaretatwood/status/388276914709729280
+<!--https://twitter.com/margaretatwood/status/388276914709729280-->
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Okay,everyone&#39;s calling Me to get me to write about Alice! <br> (Alice, come out from behind the tool shed and pick up the phone.) <a href="https://twitter.com/hashtag/AliceMunro?src=hash">#AliceMunro</a></p>&mdash; Margaret E. Atwood (@MargaretAtwood) <a href="https://twitter.com/MargaretAtwood/status/388276914709729280">October 10, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 很长一段时间，说起加拿大作家，我能想到的几乎只有这两位。于是，加拿大的文学圈经常在我的想象中被具现成两位闺蜜在家里后院的下午茶：两位银发女作家一边喝茶一遍闲谈生活，有点类似勃朗特姐妹写的那种乡村生活，而不是那种更普遍的，村上春树写过的著名大学英文系，教授作家齐聚一堂讨论严肃文学的话题的情景。
 
