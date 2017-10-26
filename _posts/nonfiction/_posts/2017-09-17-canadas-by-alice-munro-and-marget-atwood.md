@@ -11,7 +11,7 @@ layout: default
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Okay,everyone&#39;s calling Me to get me to write about Alice! <br> (Alice, come out from behind the tool shed and pick up the phone.) <a href="https://twitter.com/hashtag/AliceMunro?src=hash">#AliceMunro</a></p>&mdash; Margaret E. Atwood (@MargaretAtwood) <a href="https://twitter.com/MargaretAtwood/status/388276914709729280">October 10, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-一段时间里，提起加拿大作家，我只想得起来这两位。那会加拿大的文学圈经常被我想象成闺蜜的下午茶：两位银发女作家在家里的后院喝茶闲谈，像勃朗特姐妹笔下的乡间生活，不太像村上春树写的那种著名大学英文系的茶会。
+一段时间里，提起加拿大作家，我只想得起来这两位。那会加拿大的文学圈经常被我想象成两位闺蜜的下午茶，而不是村上春树写过的那种著名大学英文系的茶会：银发女作家们在家里的后院喝茶闲谈，像勃朗特姐妹笔下的乡间光景。
 
 这想象当然不是真的。这两位是闺蜜不假，但她们碰面的机会可能并不很多：门罗生活在远离大城市的小镇，还有二十多年生活在加拿大西海岸；阿特伍德则几乎一直生活在多伦多。加拿大作家圈子也不止这两位——如果你需要第三个名字的话，可以考虑一下写《少年Pi的奇幻漂流》的扬马泰尔。
 
