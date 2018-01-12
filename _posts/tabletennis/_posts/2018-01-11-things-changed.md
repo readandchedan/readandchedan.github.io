@@ -1,5 +1,5 @@
 ---
-layout:defaul
+layout: default
 title: 刘国梁退役，国乒的新选拔方式：空气变了，风景变了，不管喜不喜欢
 ---
 
