@@ -53,9 +53,7 @@ layout: default
 
    结果稍不注意，聚沙成塔，水滴石穿，家里已经胶片机成堆，老镜头林立了。
 
-   在你沉迷其中，大浪淘沙的试图找到自己喜欢的相机的时候，你可能意识得到他们正在一天天变得昂贵：
-
-   https://www.japancamerahunter.com/2017/05/compact-cameras-future/
+   在你沉迷其中，大浪淘沙的试图找到自己喜欢的相机的时候，你可能意识得到[它们正在一天天变得昂贵](https://www.japancamerahunter.com/2017/05/compact-cameras-future/)：
 
    大约在7年前的时候，一台状况良好的理光GR1（森山大道胶片时代常用的傻瓜机）或者Contax T2（这两年因为Kendall Jenner而成为网红款的高质量傻瓜机）两三百美元经常能找得到。现如今这些款式的价格已经飙升几倍有余，状况还不如当年，而且很难找到了。
 
