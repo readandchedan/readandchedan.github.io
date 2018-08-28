@@ -1,5 +1,5 @@
 ---
-layout:default
+layout: default
 title: 2018保加利亚捷克公开赛——新冠军，旧冠军
 ---
 
