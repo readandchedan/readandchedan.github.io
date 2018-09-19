@@ -1,5 +1,5 @@
 ---
-title: 写在三年后（？）的夏威夷游记
+title: 三年后的夏威夷游记
 layout: default
 ---
 
