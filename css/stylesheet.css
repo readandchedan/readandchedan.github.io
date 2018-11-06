@@ -107,7 +107,8 @@ footer {
 }
 
 blockquote {
-  border-left: 1.5px solid grey;
+  border-left: 4px solid #D3D3D3;
+  margin-left: 1em;
 }
 
 blockquote p {
