@@ -31,7 +31,7 @@
 body {
   margin: 0 auto;
   font-family: Palatino, 'Palatino Linotype', Georgia, 'STHeiti', 'Microsoft YaHei', serif;
-  
+  color: #555;;
   background-color: #fffaf7;
 
   max-width: 50rem;
