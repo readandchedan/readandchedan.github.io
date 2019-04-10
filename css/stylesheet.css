@@ -40,7 +40,7 @@
   -webkit-font-smoothing: antialiased;
 }
 
-
+/*
 @media (min-width: 20rem) {
   .post {
     max-width: 18rem;
@@ -55,7 +55,7 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-}
+}*/
 
 ul {
   list-style-type: none;
