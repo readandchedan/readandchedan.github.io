@@ -28,11 +28,11 @@
   color: #9a9a9a;
 }
 
-.post {
+.body {
   margin: 0 auto;
   font-family: Palatino, 'Palatino Linotype', Georgia, 'STHeiti', 'Microsoft YaHei', serif;
   
-  color: #484848;
+  color: #fffaf7;
 
   max-width: 50rem;
   font-size: 1.125em;
