@@ -87,4 +87,5 @@ title: 新排名时代的世界锦标赛怎么打——如同没有明天
 
 参考：
 程靖淇微博：https://www.weibo.com/u/2008579317
+
 table tennis daily 对西蒙的采访：https://www.youtube.com/watch?v=K1Yi-v9-CZA
