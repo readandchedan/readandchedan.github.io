@@ -18,6 +18,7 @@
   margin-bottom: 0;
   font-family: georgia;
   margin-top: 2rem;
+  display: none;
 }
 
 .post-date {
