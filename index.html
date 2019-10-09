@@ -2,7 +2,7 @@
 layout: default
 title: Read And Chedan
 ---
-<p class="quote">Write a little every day, without hope and without despair. --- Isak Dinesen</p>
+<p class="quote"></p>
 <ul style="list-style-type: circle;">
     <li class="category">
         <a href="/tabletennis.html">体育.乒乓球</a>
@@ -21,5 +21,5 @@ title: Read And Chedan
         "I don’t pretend to be an intellectual or a philosopher. I just look. –-- Josef Koudelka",
     ]
     var quote_idx = Math.floor(Math.random() * quotes.length)
-	document.getElementByClass('quote').innerHTML = quotes[quote_idx];
+	document.getElementsByClassName('quote')[0].innerHTML = quotes[quote_idx];
 </script>
