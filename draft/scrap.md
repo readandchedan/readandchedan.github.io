@@ -1,0 +1,1 @@
+I'm eating sitting in this diner at 57th and 9th, finishing my french fries with my coffee. It is then I realized I will stuck here for the rest of my life.
