@@ -120,6 +120,6 @@ hr {
   margin-bottom: 2em;  
 }
 
-image {
-  width: 100%;
+img {
+  max-width: 100%;
 }
