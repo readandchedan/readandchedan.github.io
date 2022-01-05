@@ -114,3 +114,8 @@ blockquote {
 blockquote p {
   margin-left: 0.5em;
 }
+
+hr {
+  margin-top: 2em;
+  margin-bottom: 2em;  
+}
