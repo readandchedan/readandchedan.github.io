@@ -119,3 +119,7 @@ hr {
   margin-top: 2em;
   margin-bottom: 2em;  
 }
+
+image {
+  width: 100%;
+}
