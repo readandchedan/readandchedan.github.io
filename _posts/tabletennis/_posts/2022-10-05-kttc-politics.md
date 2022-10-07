@@ -1,5 +1,5 @@
 ---
-title: 韩国乒协不完全洪烈内讧史
+title: 韩国乒协不完全轰烈内讧史
 layout: default
 ---
 
