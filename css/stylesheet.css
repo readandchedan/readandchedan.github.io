@@ -64,11 +64,10 @@ ul {
 
 li {
   list-style-type: circle;
-  margin: 30px;
+  margin: 15px;
 }
 
 a {
-    text-decoration: none;
     color: #303030
 }
 
