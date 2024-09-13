@@ -63,7 +63,8 @@ ul {
 }
 
 li {
-  line-height: 1.3;
+  list-style-type: circle;
+  margin: 30px;
 }
 
 a {
