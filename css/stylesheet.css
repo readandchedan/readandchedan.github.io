@@ -68,7 +68,9 @@ li {
 }
 
 a {
-    color: #303030
+    color: #303030;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 a:hover {
