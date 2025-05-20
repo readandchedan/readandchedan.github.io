@@ -1,5 +1,5 @@
 ---
-title: 为什么世乒赛起码准备三块板
+title: 为什么只有世乒赛起码得准备三块板
 layout: default
 ---
 
