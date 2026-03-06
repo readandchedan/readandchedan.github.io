@@ -1,5 +1,5 @@
 ---
-title: 世乒赛选拔，目前位置选出了点啥？
+title: 世乒赛选拔，选出了点啥？
 layout: default
 ---
 
