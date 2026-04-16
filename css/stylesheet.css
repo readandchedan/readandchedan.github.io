@@ -134,3 +134,15 @@ hr {
 img {
   max-width: 100%;
 }
+
+/* Scroll Progress Bar Styling */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px; /* Thickness of the bar */
+    background-color: #484848; /* Matching a primary color from header links */
+    z-index: 1000;
+    width: 0%; /* Initial width */
+    transition: width 0.1s linear; /* Smooth transition for updates */
+}
