@@ -92,6 +92,25 @@ a:hover {
   margin-left: 19px;
 }
 
+.pagination {
+  font-size: 0.85rem;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  color: #9a9a9a;
+}
+
+.breadcrumb a {
+  color: #9a9a9a;
+  font-weight: normal;
+}
+
+.post-item {
+  margin-bottom: 0.6rem;
+}
+
 body.post header p {
   font-size: 12px;
 }
