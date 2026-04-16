@@ -1,36 +1,14 @@
 ---
 layout: default
 title: Read And Chedan
-permalink: /tabletennis/
-paginate: true
-page: 1
-more: true
-# Assuming 'tabletennis' is a tag or category used to filter posts, adjust this if necessary for your setup.
-tags: tabletennis
 ---
-<ul class="post-list">
-　　{% for post in paginator.posts %}
+<ul>
+　　{% for post in site.posts %}
+        {% if post.path contains 'tabletennis' %}
         <li>
             <div class="post-date">{{ post.date | date_to_string }}</div>
             <a href="{{ post.url }}">{{ post.title }}</a>
         </li>
-    {% endfor %}
+        {% endif %}
+　　{% endfor %}
 </ul>
-
-{% if paginator.previous %}
-  <div class="pagination">
-    <a href="{{ paginator.previous.url }}" class="prev">&larr; Previous Page</a>
-  </div>
-{% endif %}
-
-{% if paginator.next %}
-  <div class="pagination">
-    <a href="{{ paginator.next.url }}" class="next">Next Page &rarr;</a>
-  </div>
-{% endif %}
-
-{% if paginator.pages > 1 %}
-  <div class="pagination">
-    Page {{ paginator.page }} of {{ paginator.pages }}
-  </div>
-{% endif %}
