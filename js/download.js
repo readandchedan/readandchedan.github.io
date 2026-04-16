@@ -14,7 +14,7 @@ var map = {
         '4chan.org': '.fileThumb',
 }
 
-var downloadByDomain ＝ function() {
+var downloadByDomain = function() {
         downloadBySelector(map[window.location.hostname]);
 }
 
