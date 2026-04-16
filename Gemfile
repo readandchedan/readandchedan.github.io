@@ -1,3 +1,6 @@
 source "https://rubygems.org"
 
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 3.9.0"
+gem "jekyll-paginate-v2"
+gem "kramdown"
+gem "kramdown-parser-gfm"
