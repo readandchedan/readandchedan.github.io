@@ -1,13 +1,26 @@
 encoding: utf-8
 title: Read, And Chedan
 markdown: kramdown
-safe:        false
+kramdown:
+  input: GFM
+safe: false
 
 url: http://readandchedan.com
 description: Read, And Chedan
 name: Read, And Chedan
 
-source:      .
-future:      true
-lsi:         false
-# pygments:    false
+source: .
+future: true
+lsi: false
+
+plugins:
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
+  per_page: 20
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true

@@ -1,17 +1,20 @@
 ---
 layout: default
 title: Read And Chedan
+permalink: /
+pagination:
+  enabled: false
 ---
 <p class="quote"></p>
 <ul style="list-style-type: circle;">
     <li class="category">
-        <a href="/tabletennis.html">体育.乒乓球</a>
+        <a href="/tabletennis/">体育.乒乓球</a>
     </li>
     <li class="category">
-        <a href="/nonfiction.html">闲谈.杂叙</a>
+        <a href="/nonfiction/">闲谈.杂叙</a>
     </li>
     <li class="category">
-        <a href="/fiction.html">虚构.故事</a>
+        <a href="/fiction/">虚构.故事</a>
     </li>
 </ul>
 <script>
