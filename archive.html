@@ -2,11 +2,40 @@
 layout: default
 title: Read And Chedan
 ---
-<ul>
-　　{% for post in site.posts %}
-　　　　<li>
-            <div class="post-date">{{ post.date | date_to_string }}</div>
+
+{% assign posts_by_year = site.posts | group_by_exp: 'post', 'post.date | date: "%Y"' %}
+
+{% for year in posts_by_year %}
+<div class="archive-year">
+    <h2 class="archive-toggle" data-year="{{ year.name }}">{{ year.name }} <span class="archive-count">({{ year.items | size }} posts)</span></h2>
+    <ul class="archive-list" id="archive-list-{{ year.name }}">
+        {% for post in year.items %}
+        <li class="archive-item">
+            <span class="archive-date">{{ post.date | date: '%b %d' }}</span>
             <a href="{{ post.url }}">{{ post.title }}</a>
         </li>
-　　{% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+
+<script>
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        var toggles = document.querySelectorAll('.archive-toggle');
+        toggles.forEach(function(toggle) {
+            var year = toggle.getAttribute('data-year');
+            var list = document.getElementById('archive-list-' + year);
+            if (list) {
+                list.style.display = 'none';
+            }
+            toggle.style.cursor = 'pointer';
+            toggle.addEventListener('click', function() {
+                if (list) {
+                    list.style.display = (list.style.display === 'none') ? 'block' : 'none';
+                }
+            });
+        });
+    });
+})();
+</script>
