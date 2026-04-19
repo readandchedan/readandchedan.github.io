@@ -19,7 +19,187 @@ window.addEventListener('resize', updateScrollProgress); // Update on resize as 
 document.addEventListener('DOMContentLoaded', function() {
     updateScrollProgress();
     initCategoryPagination();
+    initSearch();
 });
+
+// Search Implementation
+function initSearch() {
+    var searchInput = document.getElementById('search-input');
+    var searchResults = document.getElementById('search-results');
+    var searchIcon = document.getElementById('search-icon');
+    if (!searchInput || !searchResults) return;
+
+    var posts = [];
+    var searchIndexLoaded = false;
+    var isSearchOpen = false;
+
+    function toggleSearch() {
+        isSearchOpen = !isSearchOpen;
+        if (isSearchOpen) {
+            searchInput.classList.add('active');
+            searchInput.focus();
+            loadSearchIndex();
+        } else {
+            searchInput.classList.remove('active');
+            searchResults.style.display = 'none';
+            searchInput.value = '';
+        }
+    }
+
+    if (searchIcon) {
+        searchIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleSearch();
+        });
+    }
+
+    function loadSearchIndex() {
+        if (searchIndexLoaded) return;
+        searchIndexLoaded = true;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/search.json', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                try {
+                    posts = JSON.parse(xhr.responseText);
+                } catch (e) {
+                    posts = [];
+                }
+                performSearch(searchInput.value);
+            }
+        };
+        xhr.send();
+    }
+
+    function escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function getSnippet(text, query, snippetLength) {
+        snippetLength = snippetLength || 100;
+        var regex = new RegExp(escapeRegExp(query), 'i');
+        var match = text.match(regex);
+        if (!match) return text.substring(0, snippetLength) + '...';
+        var index = match.index;
+        var start = Math.max(0, index - Math.floor(snippetLength / 2));
+        var end = Math.min(text.length, start + snippetLength);
+        if (end - start < snippetLength) {
+            start = Math.max(0, end - snippetLength);
+        }
+        var snippet = text.substring(start, end);
+        if (start > 0) snippet = '...' + snippet;
+        if (end < text.length) snippet = snippet + '...';
+        return snippet;
+    }
+
+    function highlightText(text, query) {
+        var regex = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    function getCategoryLabel(category) {
+        if (category === 'fiction') return '虚构.故事';
+        if (category === 'nonfiction') return '闲谈.杂叙';
+        if (category === 'tabletennis') return '体育.乒乓球';
+        return '';
+    }
+
+    function performSearch(query) {
+        query = query.trim();
+        if (!query) {
+            searchResults.innerHTML = '';
+            searchResults.style.display = 'none';
+            return;
+        }
+        if (!posts.length) {
+            searchResults.innerHTML = '<div class="search-no-results">加载中...</div>';
+            searchResults.style.display = 'block';
+            return;
+        }
+
+        var lowerQuery = query.toLowerCase();
+        var results = [];
+
+        for (var i = 0; i < posts.length; i++) {
+            var post = posts[i];
+            var titleLower = (post.title || '').toLowerCase();
+            var contentLower = (post.content || '').toLowerCase();
+            var titleScore = titleLower.indexOf(lowerQuery) !== -1 ? 2 : 0;
+            var contentScore = contentLower.indexOf(lowerQuery) !== -1 ? 1 : 0;
+            if (titleScore || contentScore) {
+                results.push({
+                    post: post,
+                    score: titleScore + contentScore
+                });
+            }
+        }
+
+        results.sort(function(a, b) {
+            if (b.score !== a.score) return b.score - a.score;
+            return (a.post.date || '').localeCompare(b.post.date || '');
+        });
+
+        if (results.length === 0) {
+            searchResults.innerHTML = '<div class="search-no-results">没有找到结果</div>';
+            searchResults.style.display = 'block';
+            return;
+        }
+
+        var html = '';
+        var maxResults = 10;
+        for (var j = 0; j < Math.min(results.length, maxResults); j++) {
+            var r = results[j];
+            var post = r.post;
+            var snippet = getSnippet(post.content || '', query, 120);
+            snippet = highlightText(snippet, query);
+            var titleHighlighted = highlightText(post.title || '', query);
+            var categoryLabel = getCategoryLabel(post.category);
+            var categoryHtml = categoryLabel ? '<span class="search-category">' + categoryLabel + '</span>' : '';
+            html += '<a href="' + post.url + '" class="search-result-item">' +
+                '<div class="search-result-title">' + titleHighlighted + '</div>' +
+                '<div class="search-result-meta">' + categoryHtml + '<span class="search-result-date">' + (post.date || '') + '</span></div>' +
+                '<div class="search-result-snippet">' + snippet + '</div>' +
+                '</a>';
+        }
+        if (results.length > maxResults) {
+            html += '<div class="search-more">还有 ' + (results.length - maxResults) + ' 个结果</div>';
+        }
+        searchResults.innerHTML = html;
+        searchResults.style.display = 'block';
+    }
+
+    searchInput.addEventListener('focus', function() {
+        loadSearchIndex();
+        if (searchInput.value.trim()) {
+            performSearch(searchInput.value);
+        }
+    });
+
+    var debounceTimer;
+    searchInput.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function() {
+            performSearch(searchInput.value);
+        }, 150);
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target) && !(searchIcon && searchIcon.contains(e.target))) {
+            if (isSearchOpen) {
+                toggleSearch();
+            } else {
+                searchResults.style.display = 'none';
+            }
+        }
+    });
+
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            searchResults.style.display = 'none';
+            searchInput.blur();
+        }
+    });
+}
 
 // Category Pagination Implementation
 function initCategoryPagination() {

@@ -172,6 +172,153 @@ img {
   max-width: 100%;
 }
 
+/* Search Styling */
+.search-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 7px;
+}
+
+.search-icon {
+    cursor: pointer;
+    color: #484848;
+    user-select: none;
+    padding: 2px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+}
+
+.search-icon svg {
+    display: block;
+}
+
+#search-input {
+    font-family: inherit;
+    font-size: 0.85rem;
+    padding: 2px 10px;
+    border: 1px solid #bbb;
+    border-radius: 20px;
+    width: 0;
+    outline: none;
+    color: #555;
+    background: #fafafa;
+    transition: width 0.3s ease, border-color 0.2s ease, padding 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    line-height: 1.4;
+}
+
+#search-input.active {
+    width: 140px;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 2px 10px;
+}
+
+#search-input:focus {
+    border-color: #888;
+    background: #fff;
+}
+
+.search-results {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1001;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.search-result-item {
+    display: block;
+    padding: 10px 12px;
+    border-bottom: 1px solid #f5f5f5;
+    color: #555;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.search-result-item:hover {
+    background: #f9f9f9;
+    text-decoration: none;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-title {
+    font-weight: 600;
+    color: #484848;
+    margin-bottom: 2px;
+    font-size: 0.9rem;
+}
+
+.search-result-meta {
+    font-size: 0.75rem;
+    color: #9a9a9a;
+    margin-bottom: 4px;
+}
+
+.search-category {
+    margin-right: 8px;
+    color: #888;
+}
+
+.search-result-date {
+    color: #aaa;
+}
+
+.search-result-snippet {
+    color: #777;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.search-result-snippet mark {
+    background: #fff3cd;
+    color: inherit;
+    padding: 0 1px;
+}
+
+.search-no-results {
+    padding: 16px;
+    text-align: center;
+    color: #999;
+}
+
+.search-more {
+    padding: 8px 12px;
+    text-align: center;
+    color: #999;
+    font-size: 0.75rem;
+    border-top: 1px solid #f5f5f5;
+}
+
+@media (max-width: 30rem) {
+    #search-input {
+        width: 80px;
+        font-size: 0.8rem;
+    }
+    #search-input:focus {
+        width: 120px;
+    }
+    .search-results {
+        width: 260px;
+        right: -40px;
+    }
+}
+
 /* Scroll Progress Bar Styling */
 #scroll-progress {
     position: fixed;
