@@ -41,15 +41,33 @@ body {
 }
 
 
-@media (min-width: 20rem) {
+@media (max-width: 30rem) {
   body {
-    max-width: 18rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+    line-height: 1.6em;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.3em;
+  }
+  
+  .header {
+    font-size: 0.9rem;
+  }
+  
+  .header div[style*="float:right"] {
+    float: right !important;
+    display: inline-block;
+    margin-top: 0;
+    white-space: nowrap;
   }
 }
 
-@media (min-width: 26rem) {
+@media (min-width: 30rem) {
   body {
     max-width: 44rem;
     padding-left: 1.5rem;
