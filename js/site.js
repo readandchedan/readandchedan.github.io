@@ -38,7 +38,28 @@ function initCategoryPagination() {
     var current = 1;
     var pages = Math.ceil(total / perPage);
 
-    function showPage(page) {
+    function getHashPage() {
+        var hash = window.location.hash;
+        if (!hash) return null;
+        var match = hash.match(/^#page(\d+)$/);
+        if (!match) return null;
+        var page = parseInt(match[1], 10);
+        if (isNaN(page) || page < 1 || page > pages) return null;
+        return page;
+    }
+
+    function updateHash(page) {
+        if (page === 1) {
+            // Remove hash when on page 1 for cleaner URLs
+            if (window.location.hash) {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+        } else {
+            history.replaceState(null, '', '#page' + page);
+        }
+    }
+
+    function showPage(page, skipHashUpdate) {
         var start = (page - 1) * perPage;
         var end = start + perPage;
         for (var i = 0; i < total; i++) {
@@ -48,11 +69,25 @@ function initCategoryPagination() {
         nextBtn.style.visibility = page === pages ? 'hidden' : 'visible';
         pageInfo.textContent = 'Page ' + page + ' of ' + pages;
         current = page;
+        if (!skipHashUpdate) {
+            updateHash(page);
+        }
     }
 
     prevBtn.addEventListener('click', function() { if (current > 1) showPage(current - 1); });
     nextBtn.addEventListener('click', function() { if (current < pages) showPage(current + 1); });
 
+    // Listen for hash changes (e.g., back/forward buttons, manual URL edits)
+    window.addEventListener('hashchange', function() {
+        var page = getHashPage();
+        if (page !== null && page !== current) {
+            showPage(page, true);
+        }
+    });
+
     paginationContainer.style.display = 'block';
-    showPage(1);
+
+    // Determine initial page from URL hash, default to 1
+    var initialPage = getHashPage() || 1;
+    showPage(initialPage, true);
 }
