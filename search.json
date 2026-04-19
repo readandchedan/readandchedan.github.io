@@ -1,0 +1,14 @@
+---
+layout: null
+---
+[
+  {% for post in site.posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | jsonify }},
+    "date": {{ post.date | date: '%B %d, %Y' | jsonify }},
+    "category": {% if post.path contains '_posts/fiction' %}"fiction"{% elsif post.path contains 'nonfiction' %}"nonfiction"{% elsif post.path contains 'tabletennis' %}"tabletennis"{% else %}"other"{% endif %},
+    "content": {{ post.content | strip_html | strip_newlines | truncate: 1000 | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

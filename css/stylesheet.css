@@ -319,6 +319,45 @@ img {
     }
 }
 
+/* Archive Page Styling */
+.archive-year {
+    margin-bottom: 2rem;
+}
+
+.archive-year h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #eee;
+    color: #484848;
+}
+
+.archive-count {
+    font-size: 0.85rem;
+    color: #9a9a9a;
+    font-weight: normal;
+}
+
+.archive-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.archive-item {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.archive-date {
+    display: inline-block;
+    width: 3.5rem;
+    font-size: 0.85rem;
+    color: #9a9a9a;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 /* Scroll Progress Bar Styling */
 #scroll-progress {
     position: fixed;
