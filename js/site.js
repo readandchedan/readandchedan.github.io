@@ -15,11 +15,28 @@ function updateScrollProgress() {
 window.addEventListener('scroll', updateScrollProgress);
 window.addEventListener('resize', updateScrollProgress); // Update on resize as well
 
+// Quote Implementation
+function initQuote() {
+    var quotes = [
+        "The ideal place for me is the one in which it is most natural to live as a foreigner. --- Italo Calvino",
+        "Write a little every day, without hope and without despair. --- Isak Dinesen",
+        "I don’t pretend to be an intellectual or a philosopher. I just look. –-- Josef Koudelka",
+        "Think of nothing things, think of wind. --- Truman Capote",
+        "Pain is inevitable. Suffering is optional. --- Haruki Murakami"
+    ];
+    var quoteElements = document.getElementsByClassName('quote');
+    if (quoteElements.length > 0) {
+        var quote_idx = Math.floor(Math.random() * quotes.length);
+        quoteElements[0].innerHTML = quotes[quote_idx];
+    }
+}
+
 // Initial call to set the progress bar correctly on load
 document.addEventListener('DOMContentLoaded', function() {
     updateScrollProgress();
     initCategoryPagination();
     initSearch();
+    initQuote();
 });
 
 // Search Implementation
