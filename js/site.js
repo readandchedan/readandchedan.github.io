@@ -22,7 +22,8 @@ function initQuote() {
         "Write a little every day, without hope and without despair. --- Isak Dinesen",
         "I don’t pretend to be an intellectual or a philosopher. I just look. –-- Josef Koudelka",
         "Think of nothing things, think of wind. --- Truman Capote",
-        "Pain is inevitable. Suffering is optional. --- Haruki Murakami"
+        "Pain is inevitable. Suffering is optional. --- Haruki Murakami",
+        "Amateurs sit and wait for inspiration, the rest of us just get up and go to work. --- Stephen King"
     ];
     var quoteElements = document.getElementsByClassName('quote');
     if (quoteElements.length > 0) {
