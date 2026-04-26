@@ -307,10 +307,12 @@ img {
 }
 
 @media (max-width: 30rem) {
+    #search-input,
     #search-input.active {
         width: 70px;
         font-size: 0.8rem;
     }
+    #search-input:focus,
     #search-input.active:focus {
         width: 90px;
     }
