@@ -307,11 +307,11 @@ img {
 
 @media (max-width: 30rem) {
     #search-input {
-        width: 80px;
+        width: 70px;
         font-size: 0.8rem;
     }
     #search-input:focus {
-        width: 120px;
+        width: 90px;
     }
     .search-results {
         width: 260px;
