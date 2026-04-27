@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /.plan
+---
+Login: oscar                            Name: Oscar
+Directory: /home/oscar                  Shell: /bin/bash
+On since 2008 on tty1
+No mail.
+
+Plan:
+  Latest: {{ site.posts.first.title }}
+
+  {{ site.posts.size }} posts archived.
+  Categories: table tennis, fiction, essays.
+  Currently: reading, writing, not accepting match challenges.
+
+Project:
+  readandchedan.github.io
