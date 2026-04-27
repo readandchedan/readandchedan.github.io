@@ -5,7 +5,7 @@ title: Read And Chedan
 <p class="quote"></p>
 <ul style="list-style-type: circle;">
     <li class="category">
-        <a href="/tabletennis.html">体育.乒乓球</a>
+        <a href="/tabletennis.html">体育.乒乓</a>
     </li>
     <li class="category">
         <a href="/nonfiction.html">闲谈.杂叙</a>
