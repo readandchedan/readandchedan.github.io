@@ -102,8 +102,9 @@
   overflow-x: auto;
   font-size: 14px;
   line-height: 1.6;
-  white-space: pre-wrap;
+  white-space: normal;
   word-wrap: break-word;
+  word-break: break-all;
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
@@ -116,6 +117,8 @@
   background: transparent;
   padding: 0;
   font-size: 14px;
+  white-space: normal;
+  word-break: break-all;
 }
 
 #article p code,

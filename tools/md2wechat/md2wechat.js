@@ -68,6 +68,18 @@ function toInlineHtml(markdown, css) {
     html: true,
     linkify: true,
     typographer: false,
+    highlight: (str) => {
+      // WeChat editor does not reliably preserve whitespace in <pre>,
+      // so we convert spaces/line breaks explicitly.
+      const lines = str.replace(/\r\n/g, '\n').split('\n');
+      // Drop a single trailing blank line that Markdown usually adds.
+      if (lines.length > 1 && lines[lines.length - 1] === '') {
+        lines.pop();
+      }
+      return lines
+        .map((line) => md.utils.escapeHtml(line).replace(/ /g, '&nbsp;'))
+        .join('<br/>');
+    },
   });
 
   const body = md.render(markdown);
@@ -169,7 +181,11 @@ function copyHtmlToClipboard(html) {
     const psCommand =
       `Add-Type -AssemblyName System.Windows.Forms; ` +
       `$html = [System.IO.File]::ReadAllText('${quotedPath}'); ` +
-      `[System.Windows.Forms.Clipboard]::SetText($html, [System.Windows.Forms.TextDataFormat]::Html);`;
+      `$data = New-Object System.Windows.Forms.DataObject; ` +
+      `$data.SetData('text/html', $html); ` +
+      `$data.SetData('HTML Format', $html); ` +
+      `$data.SetData('UnicodeText', $html); ` +
+      `[System.Windows.Forms.Clipboard]::SetDataObject($data, $true);`;
 
     runPowerShell(psCommand);
     return true;
