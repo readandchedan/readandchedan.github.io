@@ -112,8 +112,10 @@ function toInlineHtml(markdown, css) {
     },
   });
 
-  const body = md.render(markdown);
-  const wrapped = `<div id="article">\n${body}\n</div>`;
+  const body = md.render(markdown)
+    .replace(/<table/g, '<div class="table-container"><table')
+    .replace(/<\/table>/g, '</table></div>');
+  const wrapped = `<section id="nice" data-tool="mdnice编辑器">\n${body}\n</section>`;
   return juice.inlineContent(wrapped, css, {
     inlinePseudoElements: true,
     preserveImportant: true,
