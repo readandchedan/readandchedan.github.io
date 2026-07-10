@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markdown 转微信公众号</title>
+<script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+<style>
+/* ============ 页面布局 ============ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f5f5;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  color: #333;
+}
+
+.btn:hover { border-color: #1e6bb8; color: #1e6bb8; }
+
+.btn-primary {
+  background: #1e6bb8;
+  color: #fff;
+  border-color: #1e6bb8;
+}
+
+.btn-primary:hover { background: #185a9c; border-color: #185a9c; color: #fff; }
+
+.btn-success {
+  background: #52c41a;
+  color: #fff;
+  border-color: #52c41a;
+}
+
+.btn-success:hover { background: #49b418; border-color: #49b418; color: #fff; }
+
+.main-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-pane, .preview-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.editor-pane { margin-right: 5px; }
+.preview-pane { margin-left: 5px; }
+
+.pane-header {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#markdown-editor {
+  width: 100%;
+  flex: 1;
+  border: none;
+  resize: none;
+  padding: 16px;
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #333;
+  outline: none;
+  tab-size: 2;
+}
+
+#markdown-editor::placeholder { color: #ccc; }
+
+#preview-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* 滚动条美化 */
+#preview-content::-webkit-scrollbar,
+#markdown-editor::-webkit-scrollbar {
+  width: 6px;
+}
+#preview-content::-webkit-scrollbar-thumb,
+#markdown-editor::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 3px;
+}
+#preview-content::-webkit-scrollbar-thumb:hover,
+#markdown-editor::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* Toast 提示 */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #333;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 9999;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ============ 默认主题 (wechat.bmpi.dev 默认主题) ============ */
+
+/*全局属性*/
+#nice {
+  font-size: 16px;
+  color: black;
+  padding: 0 10px;
+  line-height: 1.6;
+  word-spacing: 0px;
+  letter-spacing: 0px;
+  word-break: break-word;
+  word-wrap: break-word;
+  text-align: left;
+  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/*段落*/
+#nice p {
+  font-size: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 0;
+  line-height: 26px;
+  color: black;
+}
+
+/*标题*/
+#nice h1, #nice h2, #nice h3, #nice h4, #nice h5, #nice h6 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 0px;
+  font-weight: bold;
+  color: black;
+}
+#nice h1 { font-size: 24px; }
+#nice h2 { font-size: 22px; }
+#nice h3 { font-size: 20px; }
+#nice h4 { font-size: 18px; }
+#nice h5 { font-size: 16px; }
+#nice h6 { font-size: 16px; }
+
+#nice h1 .prefix, #nice h2 .prefix, #nice h3 .prefix,
+#nice h4 .prefix, #nice h5 .prefix, #nice h6 .prefix {
+  display: none;
+}
+#nice h1 .suffix, #nice h2 .suffix, #nice h3 .suffix,
+#nice h4 .suffix, #nice h5 .suffix, #nice h6 .suffix {
+  display: none;
+}
+
+/*列表*/
+#nice ul, #nice ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 25px;
+  color: black;
+}
+#nice ul { list-style-type: disc; }
+#nice ul ul { list-style-type: square; }
+#nice ol { list-style-type: decimal; }
+
+#nice li section {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 26px;
+  text-align: left;
+  color: rgb(1,1,1);
+  font-weight: 500;
+}
+
+/*引用*/
+#nice blockquote {
+  display: block;
+  font-size: 0.9em;
+  overflow: auto;
+  overflow-scrolling: touch;
+  border-left: 3px solid rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.05);
+  color: #6a737d;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#nice blockquote p {
+  margin: 0px;
+  color: black;
+  line-height: 26px;
+}
+
+/*链接*/
+#nice a {
+  text-decoration: none;
+  color: #1e6bb8;
+  word-wrap: break-word;
+  font-weight: bold;
+  border-bottom: 1px solid #1e6bb8;
+}
+
+/*加粗*/
+#nice strong {
+  font-weight: bold;
+  color: black;
+}
+
+/*斜体*/
+#nice em {
+  font-style: italic;
+  color: black;
+}
+
+/*加粗斜体*/
+#nice em strong {
+  font-weight: bold;
+  color: black;
+}
+
+/*删除线*/
+#nice del {
+  font-style: italic;
+  color: black;
+}
+
+/*分隔线*/
+#nice hr {
+  height: 1px;
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-top: 1px solid black;
+}
+
+/*代码块*/
+#nice pre {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#nice pre code {
+  display: -webkit-box;
+  font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;
+  border-radius: 0px;
+  font-size: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+#nice pre code span {
+  line-height: 26px;
+}
+
+/*行内代码*/
+#nice p code, #nice li code {
+  font-size: 14px;
+  word-wrap: break-word;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin: 0 2px;
+  color: #1e6bb8;
+  background-color: rgba(27,31,35,.05);
+  font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;
+  word-break: break-all;
+}
+
+/*图片*/
+#nice img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+#nice figure {
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*图片描述文字*/
+#nice figcaption {
+  margin-top: 5px;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+/*表格容器*/
+#nice .table-container {
+  overflow-x: auto;
+}
+
+/*表格*/
+#nice table {
+  display: table;
+  text-align: left;
+}
+#nice tbody { border: 0; }
+
+#nice table tr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  background-color: white;
+}
+
+#nice table tr:nth-child(2n) {
+  background-color: #F8F8F8;
+}
+
+#nice table tr th, #nice table tr td {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  text-align: left;
+}
+
+#nice table tr th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+#nice table tr th:nth-of-type(n), #nice table tr td:nth-of-type(n) {
+  min-width: 85px;
+}
+
+/* 微信代码块 */
+#nice .code-snippet__fix {
+  word-wrap: break-word !important;
+  font-size: 14px;
+  margin: 10px 0;
+  display: block;
+  color: #333;
+  position: relative;
+  background-color: rgba(0,0,0,0.03);
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  display: flex;
+  line-height: 20px;
+}
+#nice .code-snippet__fix pre {
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+#nice .code-snippet__fix .code-snippet__line-index {
+  counter-reset: line;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 1em;
+  padding: 16px;
+  margin: 0;
+}
+#nice .code-snippet__fix .code-snippet__line-index li {
+  list-style-type: none;
+  text-align: right;
+  line-height: 26px;
+  color: black;
+  margin: 0;
+}
+#nice .code-snippet__fix .code-snippet__line-index li::before {
+  min-width: 1.5em;
+  text-align: right;
+  left: -2.5em;
+  counter-increment: line;
+  content: counter(line);
+  display: inline;
+  color: rgba(0,0,0,0.3);
+}
+#nice .code-snippet__fix pre {
+  overflow-x: auto;
+  padding: 16px;
+  padding-left: 0;
+  white-space: normal;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
+#nice .code-snippet__fix code {
+  text-align: left;
+  font-size: 14px;
+  display: block;
+  white-space: pre;
+  display: flex;
+  position: relative;
+  font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  padding: 0px;
+}
+
+#nice .footnote-word {
+  color: #1e6bb8;
+  font-weight: bold;
+}
+
+#nice .footnote-ref {
+  color: #1e6bb8;
+  font-weight: bold;
+}
+
+#nice .footnote-item {
+  display: flex;
+}
+
+#nice .footnote-num {
+  display: inline;
+  width: 10%;
+  background: none;
+  font-size: 80%;
+  opacity: 0.6;
+  line-height: 26px;
+  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#nice .footnote-item p {
+  display: inline;
+  font-size: 14px;
+  width: 90%;
+  padding: 0px;
+  margin: 0;
+  line-height: 26px;
+  color: black;
+  word-break: break-all;
+  width: calc(100% - 50px);
+}
+
+#nice sub, #nice sup {
+  line-height: 0;
+}
+
+#nice .footnotes-sep:before {
+  content: "参考资料";
+  display: block;
+}
+
+/* 注音符号 */
+#nice mjx-container, #nice .block-equation {
+  display: block;
+  text-align: center;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#nice .block-equation svg {
+  max-width: 300% !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 横屏滑动 */
+#nice .imageflow-layer1 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  white-space: normal;
+  border: 0px none;
+  padding: 0px;
+  overflow: hidden;
+}
+#nice .imageflow-layer2 {
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+}
+#nice .imageflow-layer3 {
+  display: inline-block;
+  word-wrap: break-word;
+  white-space: normal;
+  vertical-align: middle;
+  width: 100%;
+}
+#nice .imageflow-img {
+  display: inline-block;
+}
+#nice .imageflow-caption {
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 0px;
+  color: #888;
+}
+
+#nice figure a { border: none; }
+#nice figure a img { margin: 0px; }
+
+/* 图片链接嵌套 */
+#nice figure a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#nice figure a + figcaption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: -35px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  line-height: 35px;
+  z-index: 20;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width: 768px) {
+  .main-container { flex-direction: column; }
+  .editor-pane, .preview-pane { margin: 5px; }
+  .editor-pane { margin-right: 5px; }
+  .preview-pane { margin-left: 5px; }
+  .btn span.label { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📝 Markdown 转微信公众号</h1>
+  <div class="header-actions">
+    <button class="btn" onclick="loadSample()" title="加载示例">📄 <span class="label">示例</span></button>
+    <button class="btn" onclick="clearAll()" title="清空">🗑 <span class="label">清空</span></button>
+    <button class="btn btn-success" onclick="copyToWechat()" title="复制到微信">📋 <span class="label">复制到微信公众号</span></button>
+    <button class="btn btn-primary" onclick="exportHTML()" title="导出HTML">💾 <span class="label">导出 HTML</span></button>
+  </div>
+</div>
+
+<div class="main-container">
+  <!-- 编辑区 -->
+  <div class="editor-pane">
+    <div class="pane-header">
+      <span>✏️ Markdown 编辑</span>
+      <span style="font-size:11px;color:#999" id="char-count">0 字</span>
+    </div>
+    <textarea id="markdown-editor" placeholder="在此输入 Markdown 内容...&#10;&#10;支持：标题、列表、引用、链接、代码块、表格、图片、脚注等"></textarea>
+  </div>
+
+  <!-- 预览区 -->
+  <div class="preview-pane">
+    <div class="pane-header">👁 实时预览（默认主题）</div>
+    <div id="preview-content">
+      <section id="nice" data-tool="markdown2wechat" data-website="https://github.com">
+        <p style="color:#999;text-align:center;margin-top:60px;">在左侧输入 Markdown，这里会实时显示预览效果</p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============ Marked 自定义渲染器 ============
+const renderer = new marked.Renderer();
+
+// 标题 - 添加 prefix/content/suffix span 结构
+renderer.heading = function(text, level) {
+  return `<h${level}><span class="prefix"></span><span class="content">${text}</span><span class="suffix"></span></h${level}>`;
+};
+
+// 列表项 - 添加 section 包裹
+renderer.listitem = function(text) {
+  // marked v4+ passes tokens object; handle both string and token cases
+  const textStr = typeof text === 'string' ? text : (text.text || '');
+  let content = textStr;
+  // 如果内容不是以 HTML 标签开头，用 section 包裹
+  if (content && !content.trimStart().startsWith('<') && !content.trimStart().startsWith('<input')) {
+    content = `<section>${content}</section>`;
+  }
+  return `<li>${content}</li>`;
+};
+
+// 段落
+renderer.paragraph = function(text) {
+  return `<p>${text}</p>`;
+};
+
+// 链接 - 微信外链转脚注
+renderer.link = function(href, title, text) {
+  // 微信只支持 mp.weixin.qq.com 域名的链接
+  const isWechatLink = href && href.includes('mp.weixin.qq.com');
+  if (isWechatLink) {
+    if (title) {
+      return `<a href="${href}" title="${title}">${text}</a>`;
+    }
+    return `<a href="${href}">${text}</a>`;
+  }
+  // 外链也保留链接（用户可根据需要处理）
+  if (title) {
+    return `<a href="${href}" title="${title}">${text}</a>`;
+  }
+  return `<a href="${href}">${text}</a>`;
+};
+
+// 图片
+renderer.image = function(href, title, text) {
+  if (text && text.trim()) {
+    return `<figure><img src="${href}" alt="${text}" title="${title || ''}"><figcaption>${text}</figcaption></figure>`;
+  }
+  return `<figure><img src="${href}" alt="${title || ''}"></figure>`;
+};
+
+// 代码块
+renderer.code = function(code, language) {
+  const lines = code.split('\n');
+  // 去掉最后一个空行
+  if (lines.length > 0 && lines[lines.length - 1].trim() === '') {
+    lines.pop();
+  }
+
+  const lineNumbers = lines.map((_, i) => `<li></li>`).join('');
+  const codeLines = lines.join('\n');
+
+  const langAttr = language ? ` class="language-${language}"` : '';
+
+  return `<div class="code-snippet__fix">` +
+    `<ul class="code-snippet__line-index">${lineNumbers}</ul>` +
+    `<pre><code${langAttr}>${codeLines}</code></pre>` +
+    `</div>`;
+};
+
+// 表格 - 添加容器
+renderer.table = function(header, body) {
+  return `<div class="table-container"><table><thead>${header}</thead><tbody>${body}</tbody></table></div>`;
+};
+
+// 删除线
+renderer.del = function(text) {
+  return `<del>${text}</del>`;
+};
+
+// 强调
+renderer.em = function(text) {
+  return `<em>${text}</em>`;
+};
+
+// 加粗
+renderer.strong = function(text) {
+  return `<strong>${text}</strong>`;
+};
+
+// 分隔线
+renderer.hr = function() {
+  return `<hr>`;
+};
+
+// 引用
+renderer.blockquote = function(quote) {
+  return `<blockquote>${quote}</blockquote>`;
+};
+
+// 行内代码
+renderer.codespan = function(code) {
+  return `<code>${code}</code>`;
+};
+
+// ============ 配置 marked ============
+marked.setOptions({
+  renderer: renderer,
+  gfm: true,
+  breaks: false,
+  pedantic: false,
+  smartLists: true,
+  smartypants: false,
+  langPrefix: 'language-',
+  headerIds: false,
+  mangle: false
+});
+
+// ============ 实时渲染 ============
+const editor = document.getElementById('markdown-editor');
+const preview = document.getElementById('preview-content');
+const charCount = document.getElementById('char-count');
+
+function renderMarkdown() {
+  const markdown = editor.value;
+
+  // 更新字数统计
+  const count = markdown.replace(/\s/g, '').length;
+  charCount.textContent = count + ' 字';
+
+  if (markdown.trim() === '') {
+    preview.innerHTML = `<section id="nice" data-tool="markdown2wechat" data-website="https://github.com">
+      <p style="color:#999;text-align:center;margin-top:60px;">在左侧输入 Markdown，这里会实时显示预览效果</p>
+    </section>`;
+    return;
+  }
+
+  try {
+    // 解析 markdown
+    let html = marked.parse(markdown);
+
+    // 处理脚注标记 [^1] - 简单的脚注支持
+    html = html.replace(/\[(\d+)\]/g, '<sup class="footnote-ref">[$1]</sup>');
+
+    // 包装在 nice 容器中
+    html = `<section id="nice" data-tool="markdown2wechat" data-website="https://github.com">${html}</section>`;
+
+    preview.innerHTML = html;
+  } catch (e) {
+    preview.innerHTML = `<section id="nice"><p style="color:red;">解析错误: ${e.message}</p></section>`;
+  }
+}
+
+// 监听输入
+editor.addEventListener('input', renderMarkdown);
+
+// ============ 按钮功能 ============
+
+// 加载示例
+function loadSample() {
+  editor.value = `请使用 **Chrome** 浏览器。
+
+请阅读下方文本熟悉工具使用方法，本文可直接拷贝到微信中预览。
+
+## 1 Markdown2Html 简介
+
+- 支持自定义样式的 Markdown 编辑器
+- 支持微信公众号、知乎和稀土掘金
+- 支持导出 PDF 和 markdown
+
+## 2 主题
+
+欢迎提交主题，提供更多文章示例~~
+
+## 3 通用语法
+
+### 3.1 标题
+
+在文字写书写不同数量的\`#\`可以完成不同的标题，如下：
+
+# 一级标题
+
+## 二级标题
+
+### 三级标题
+
+### 3.2 无序列表
+
+无序列表的使用，在符号\`-\`后加空格使用。如下：
+
+- 无序列表 1
+- 无序列表 2
+- 无序列表 3
+
+如果要控制列表的层级，则需要在符号\`-\`前使用空格。如下：
+
+- 无序列表 1
+- 无序列表 2
+  - 无序列表 2.1
+  - 无序列表 2.2
+
+**由于微信原因，最多支持到二级列表**。
+
+### 3.3 有序列表
+
+1. 有序列表 1
+2. 有序列表 2
+3. 有序列表 3
+
+### 3.4 引用
+
+> 读一本好书，就是在和高尚的人谈话。 ——歌德
+
+> 雇用制度对工人不利，但工人根本无力摆脱这个制度。 ——阮一峰
+
+### 3.5 粗体和斜体
+
+**这个是粗体**
+
+*这个是斜体*
+
+***这个是粗体加斜体***
+
+### 3.6 链接
+
+微信公众号仅支持公众号文章链接，即域名为\`https://mp.weixin.qq.com/\`的合法链接。使用方法如下所示：
+
+[你是《未来世界的幸存者》么？](https://mp.weixin.qq.com/s/s5IhxV2ooX3JN_X416nidA)
+
+### 3.7 分隔线
+
+---
+
+### 3.8 删除线
+
+~~这是要被删除的内容。~~
+
+### 3.9 表格
+
+| 姓名 | 年龄 | 工作 |
+| :--- | :--: | ---: |
+| 小可爱 | 18 | 吃可爱多 |
+| 小小勇敢 | 20 | 爬棵勇敢树 |
+| 小小小机智 | 22 | 看一本机智书 |
+
+### 3.10 图片
+
+![这里写图片描述](https://my-wechat.mdnice.com/logo.png)
+
+## 4. 代码块
+
+行内代码：Use the \`printf()\` function.
+
+\`\`\`java
+// FileName: HelloWorld.java
+public class HelloWorld {
+  // Java 入口程序，程序从此入口
+  public static void main(String[] args) {
+    System.out.println("Hello,World!"); // 向控制台打印一条语句
+  }
+}
+\`\`\`
+
+\`\`\`python
+def fibonacci(n):
+    """Generate Fibonacci sequence up to n"""
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a + b
+    print()
+
+fibonacci(1000)
+\`\`\`
+`;
+  renderMarkdown();
+}
+
+// 清空
+function clearAll() {
+  if (confirm('确定要清空所有内容吗？')) {
+    editor.value = '';
+    renderMarkdown();
+  }
+}
+
+// 复制到微信公众号
+function copyToWechat() {
+  const niceContent = preview.querySelector('#nice');
+  if (!niceContent) {
+    showToast('没有可复制的内容');
+    return;
+  }
+
+  // 获取完整 HTML
+  const html = niceContent.outerHTML;
+
+  // 获取纯文本（用于检查）
+  const text = niceContent.innerText;
+
+  if (!text.trim()) {
+    showToast('没有可复制的内容');
+    return;
+  }
+
+  // 使用 Clipboard API 复制富文本
+  const blob = new Blob([html], { type: 'text/html' });
+  const clipboardItem = new ClipboardItem({
+    'text/html': blob,
+    'text/plain': new Blob([text], { type: 'text/plain' })
+  });
+
+  navigator.clipboard.write([clipboardItem]).then(() => {
+    showToast('✅ 已复制！请粘贴到微信公众号编辑器中');
+  }).catch(() => {
+    // 降级：复制到隐藏区域
+    fallbackCopy(html, text);
+  });
+}
+
+// 降级复制方案
+function fallbackCopy(html, text) {
+  const container = document.createElement('div');
+  container.style.position = 'fixed';
+  container.style.left = '-9999px';
+  container.style.top = '0';
+  container.innerHTML = html;
+  document.body.appendChild(container);
+
+  const range = document.createRange();
+  range.selectNodeContents(container);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  try {
+    document.execCommand('copy');
+    showToast('✅ 已复制！请粘贴到微信公众号编辑器中');
+  } catch (e) {
+    // 最终降级：只复制纯文本
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('⚠️ 已复制纯文本（富文本复制失败）');
+    });
+  }
+
+  selection.removeAllRanges();
+  document.body.removeChild(container);
+}
+
+// 导出 HTML
+function exportHTML() {
+  const niceContent = preview.querySelector('#nice');
+  if (!niceContent) {
+    showToast('没有可导出的内容');
+    return;
+  }
+
+  // 组装完整的 HTML 文件
+  const styles = document.querySelector('style').textContent;
+  const bodyHTML = niceContent.outerHTML;
+
+  const fullHTML = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>微信公众号文章</title>
+<style>
+/* 提取默认主题样式 */
+${extractThemeCSS()}
+</style>
+</head>
+<body style="max-width: 680px; margin: 0 auto; padding: 20px;">
+${bodyHTML}
+</body>
+</html>`;
+
+  const blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'wechat-article.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showToast('✅ HTML 文件已下载');
+}
+
+// 提取主题 CSS
+function extractThemeCSS() {
+  const styleEl = document.querySelector('style');
+  if (!styleEl) return '';
+  const css = styleEl.textContent;
+  // 提取 #nice 相关的样式（默认主题部分）
+  const match = css.match(/\/\*=+\s*默认主题[\s\S]*/);
+  return match ? match[0] : css;
+}
+
+// Toast 提示
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(toast._timeout);
+  toast._timeout = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2000);
+}
+
+// ============ 快捷键 ============
+document.addEventListener('keydown', function(e) {
+  // Ctrl/Cmd + S: 导出
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    if (e.shiftKey) {
+      // Ctrl+Shift+S: 复制
+      copyToWechat();
+    } else {
+      exportHTML();
+    }
+  }
+});
+
+// ============ 初始化 ============
+// 默认加载示例内容
+loadSample();
+
+// 支持拖拽 .md 文件到编辑器
+editor.addEventListener('dragover', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+});
+
+editor.addEventListener('drop', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  const file = e.dataTransfer.files[0];
+  if (file && (file.name.endsWith('.md') || file.name.endsWith('.markdown') || file.type === 'text/plain')) {
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      editor.value = ev.target.result;
+      renderMarkdown();
+    };
+    reader.readAsText(file, 'UTF-8');
+  }
+});
+</script>
+
+</body>
+</html>
