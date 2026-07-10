@@ -63,36 +63,6 @@ function stripFrontMatter(text) {
   return text;
 }
 
-// Windows CF_HTML requires a header with byte offsets.
-// https://learn.microsoft.com/en-us/windows/win32/dataxchg/html-clipboard-format
-function toHtmlClipboardFormat(fragment) {
-  const headerLines = [
-    'Version:0.9',
-    'StartHTML:00000000',
-    'EndHTML:00000000',
-    'StartFragment:00000000',
-    'EndFragment:00000000',
-    '',
-  ];
-  const header = headerLines.join('\r\n');
-  const prefix = '<html><body><!--StartFragment-->';
-  const suffix = '<!--EndFragment--></body></html>';
-
-  const startHtml = Buffer.byteLength(header);
-  const startFragment = startHtml + Buffer.byteLength(prefix);
-  const endFragment = startFragment + Buffer.byteLength(fragment);
-  const endHtml = endFragment + Buffer.byteLength(suffix);
-
-  const pad = (n) => n.toString().padStart(8, '0');
-  const filledHeader = header
-    .replace('StartHTML:00000000', `StartHTML:${pad(startHtml)}`)
-    .replace('EndHTML:00000000', `EndHTML:${pad(endHtml)}`)
-    .replace('StartFragment:00000000', `StartFragment:${pad(startFragment)}`)
-    .replace('EndFragment:00000000', `EndFragment:${pad(endFragment)}`);
-
-  return filledHeader + prefix + fragment + suffix;
-}
-
 function toInlineHtml(markdown, css) {
   const md = new MarkdownIt({
     html: true,
@@ -113,9 +83,9 @@ function toInlineHtml(markdown, css) {
   });
 
   const body = md.render(markdown)
-    .replace(/<table/g, '<div class="table-container"><table')
-    .replace(/<\/table>/g, '</table></div>');
-  const wrapped = `<section id="nice" data-tool="mdnice编辑器">\n${body}\n</section>`;
+    .replace(/<table/g, '<section class="table-container" data-tool="mdnice编辑器"><table')
+    .replace(/<\/table>/g, '</table></section>');
+  const wrapped = `<section id="nice" data-tool="mdnice编辑器" data-website="https://readandchedan.com">\n${body}\n</section>`;
   return juice.inlineContent(wrapped, css, {
     inlinePseudoElements: true,
     preserveImportant: true,
@@ -199,6 +169,33 @@ function windowsTempPaths() {
   return { win: raw, fs: fsPath };
 }
 
+const HTA_TEMPLATE = `<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <hta:application id="copy" border="none" caption="no" showintaskbar="no" />
+  <script src="md2wechat-content.js"></script>
+  <script>
+    window.onload = function() {
+      var div = document.createElement('div');
+      div.innerHTML = md2wechatContent;
+      div.style.position = 'absolute';
+      div.style.left = '-9999px';
+      document.body.appendChild(div);
+      var range = document.createRange();
+      range.selectNodeContents(div);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      document.execCommand('copy');
+      window.close();
+    };
+  </script>
+</head>
+<body></body>
+</html>`;
+
 function copyHtmlToClipboard(html) {
   if (process.platform === 'win32' || isWsl()) {
     const { win: tempWin, fs: tempFs } = windowsTempPaths();
@@ -206,33 +203,22 @@ function copyHtmlToClipboard(html) {
       fs.mkdirSync(tempFs, { recursive: true });
     }
 
-    const rawFile = path.join(tempFs, 'md2wechat-clipboard.html');
-    const fmtFile = path.join(tempFs, 'md2wechat-clipboard-fmt.html');
-    fs.writeFileSync(rawFile, html, 'utf8');
-    fs.writeFileSync(fmtFile, toHtmlClipboardFormat(html), 'utf8');
+    const contentJs = path.join(tempFs, 'md2wechat-content.js');
+    const htaFile = path.join(tempFs, 'md2wechat-copy.hta');
+    // BOM so mshta/IE reads the external JS as UTF-8.
+    fs.writeFileSync(contentJs, '﻿var md2wechatContent = ' + JSON.stringify(html) + ';', 'utf8');
+    fs.writeFileSync(htaFile, HTA_TEMPLATE, 'utf8');
 
-    const rawFileWin = tempWin.endsWith('\\')
-      ? tempWin + 'md2wechat-clipboard.html'
-      : tempWin + '\\md2wechat-clipboard.html';
-    const fmtFileWin = tempWin.endsWith('\\')
-      ? tempWin + 'md2wechat-clipboard-fmt.html'
-      : tempWin + '\\md2wechat-clipboard-fmt.html';
-    const q = (s) => s.replace(/'/g, "''");
+    const htaWin = tempWin.endsWith('\\')
+      ? tempWin + 'md2wechat-copy.hta'
+      : tempWin + '\\md2wechat-copy.hta';
 
-    const psCommand =
-      `Add-Type -AssemblyName System.Windows.Forms; ` +
-      `$html = [System.IO.File]::ReadAllText('${q(rawFileWin)}'); ` +
-      `$fmt = [System.IO.File]::ReadAllText('${q(fmtFileWin)}'); ` +
-      `$plain = [System.Text.RegularExpressions.Regex]::Replace($html, '<[^>]*>', ''); ` +
-      `$data = New-Object System.Windows.Forms.DataObject; ` +
-      `$data.SetData('text/html', $html); ` +
-      `$data.SetData('HTML Format', $fmt); ` +
-      `$data.SetData('UnicodeText', $plain); ` +
-      `$data.SetData('Text', $plain); ` +
-      `[System.Windows.Forms.Clipboard]::SetDataObject($data, $true);`;
-
-    runPowerShell(psCommand);
-    return true;
+    const result = spawnSync('mshta.exe', [htaWin], {
+      encoding: 'utf8',
+      windowsHide: true,
+      timeout: 15000,
+    });
+    return result.status === 0;
   }
 
   if (process.platform === 'darwin') {
