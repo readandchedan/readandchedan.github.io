@@ -1,0 +1,13 @@
+{
+  "name": "md2wechat",
+  "version": "1.0.0",
+  "description": "Convert a Markdown file to inline-styled HTML and copy it to the clipboard for WeChat Official Account editor.",
+  "main": "md2wechat.js",
+  "scripts": {
+    "convert": "node md2wechat.js"
+  },
+  "dependencies": {
+    "juice": "^5.2.0",
+    "markdown-it": "^14.1.0"
+  }
+}
