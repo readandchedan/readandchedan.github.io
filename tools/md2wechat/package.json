@@ -7,7 +7,7 @@
     "convert": "node md2wechat.js"
   },
   "dependencies": {
-    "juice": "^5.2.0",
+    "juice": "^12.1.1",
     "markdown-it": "^14.1.0"
   }
 }
