@@ -63,6 +63,36 @@ function stripFrontMatter(text) {
   return text;
 }
 
+// Windows CF_HTML requires a header with byte offsets.
+// https://learn.microsoft.com/en-us/windows/win32/dataxchg/html-clipboard-format
+function toHtmlClipboardFormat(fragment) {
+  const headerLines = [
+    'Version:0.9',
+    'StartHTML:00000000',
+    'EndHTML:00000000',
+    'StartFragment:00000000',
+    'EndFragment:00000000',
+    '',
+  ];
+  const header = headerLines.join('\r\n');
+  const prefix = '<html><body><!--StartFragment-->';
+  const suffix = '<!--EndFragment--></body></html>';
+
+  const startHtml = Buffer.byteLength(header);
+  const startFragment = startHtml + Buffer.byteLength(prefix);
+  const endFragment = startFragment + Buffer.byteLength(fragment);
+  const endHtml = endFragment + Buffer.byteLength(suffix);
+
+  const pad = (n) => n.toString().padStart(8, '0');
+  const filledHeader = header
+    .replace('StartHTML:00000000', `StartHTML:${pad(startHtml)}`)
+    .replace('EndHTML:00000000', `EndHTML:${pad(endHtml)}`)
+    .replace('StartFragment:00000000', `StartFragment:${pad(startFragment)}`)
+    .replace('EndFragment:00000000', `EndFragment:${pad(endFragment)}`);
+
+  return filledHeader + prefix + fragment + suffix;
+}
+
 function toInlineHtml(markdown, css) {
   const md = new MarkdownIt({
     html: true,
@@ -173,18 +203,30 @@ function copyHtmlToClipboard(html) {
     if (!fs.existsSync(tempFs)) {
       fs.mkdirSync(tempFs, { recursive: true });
     }
-    const tempFile = path.join(tempFs, 'md2wechat-clipboard.html');
-    fs.writeFileSync(tempFile, html, 'utf8');
 
-    const tempFileWin = tempWin.endsWith('\\') ? tempWin + 'md2wechat-clipboard.html' : tempWin + '\\md2wechat-clipboard.html';
-    const quotedPath = tempFileWin.replace(/'/g, "''");
+    const rawFile = path.join(tempFs, 'md2wechat-clipboard.html');
+    const fmtFile = path.join(tempFs, 'md2wechat-clipboard-fmt.html');
+    fs.writeFileSync(rawFile, html, 'utf8');
+    fs.writeFileSync(fmtFile, toHtmlClipboardFormat(html), 'utf8');
+
+    const rawFileWin = tempWin.endsWith('\\')
+      ? tempWin + 'md2wechat-clipboard.html'
+      : tempWin + '\\md2wechat-clipboard.html';
+    const fmtFileWin = tempWin.endsWith('\\')
+      ? tempWin + 'md2wechat-clipboard-fmt.html'
+      : tempWin + '\\md2wechat-clipboard-fmt.html';
+    const q = (s) => s.replace(/'/g, "''");
+
     const psCommand =
       `Add-Type -AssemblyName System.Windows.Forms; ` +
-      `$html = [System.IO.File]::ReadAllText('${quotedPath}'); ` +
+      `$html = [System.IO.File]::ReadAllText('${q(rawFileWin)}'); ` +
+      `$fmt = [System.IO.File]::ReadAllText('${q(fmtFileWin)}'); ` +
+      `$plain = [System.Text.RegularExpressions.Regex]::Replace($html, '<[^>]*>', ''); ` +
       `$data = New-Object System.Windows.Forms.DataObject; ` +
       `$data.SetData('text/html', $html); ` +
-      `$data.SetData('HTML Format', $html); ` +
-      `$data.SetData('UnicodeText', $html); ` +
+      `$data.SetData('HTML Format', $fmt); ` +
+      `$data.SetData('UnicodeText', $plain); ` +
+      `$data.SetData('Text', $plain); ` +
       `[System.Windows.Forms.Clipboard]::SetDataObject($data, $true);`;
 
     runPowerShell(psCommand);
