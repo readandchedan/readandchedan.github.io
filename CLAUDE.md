@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a Jekyll-based personal blog (readandchedan.com) hosted on GitHub Pages. It uses a single layout and minimal client-side JavaScript for search, pagination, and a scroll progress bar.
+This is a Jekyll-based personal blog (readandchedan.github.io — the readandchedan.com domain expired in 2026 and is no longer owned) hosted on GitHub Pages. It uses a single layout and minimal client-side JavaScript for search, pagination, and a scroll progress bar.
 
 ## Commands
 
